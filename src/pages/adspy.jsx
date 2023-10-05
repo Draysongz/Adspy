@@ -7,6 +7,7 @@ import {
   Button,
   Card,
   CardBody,
+  CardFooter,
   Spacer,
   Drawer,
   DrawerContent,
@@ -32,6 +33,7 @@ import {
   Circle,
   Stack,
 } from "@chakra-ui/react";
+import { BiLike, BiShare, BiChat } from "react-icons/bi";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { useRef } from "react";
 import Link from "next/link";
@@ -598,7 +600,6 @@ const Adspy = () => {
                       Clear All
                     </Button>
                   </Flex>
-                  <AdsCard /> <AdsCard />
                 </TabPanel>
                 <TabPanel mt={2}>
                   <Flex
@@ -741,7 +742,6 @@ const Adspy = () => {
                       Clear All
                     </Button>
                   </Flex>
-                  <AdsCard /> <AdsCard />
                 </TabPanel>
                 <TabPanel mt={2}>
                   <Flex
@@ -883,7 +883,6 @@ const Adspy = () => {
                       Clear All
                     </Button>
                   </Flex>
-                  <AdsCard /> <AdsCard />
                 </TabPanel>
                 <TabPanel mt={2}>
                   <Flex
@@ -1025,7 +1024,6 @@ const Adspy = () => {
                       Clear All
                     </Button>
                   </Flex>
-                  <AdsCard /> <AdsCard />
                 </TabPanel>
                 <TabPanel mt={2}>
                   <Flex
@@ -1167,7 +1165,6 @@ const Adspy = () => {
                       Clear All
                     </Button>
                   </Flex>
-                  <AdsCard /> <AdsCard />
                 </TabPanel>
                 <TabPanel mt={2}>
                   <Flex
@@ -1272,7 +1269,6 @@ const Adspy = () => {
                       Clear All
                     </Button>
                   </Flex>
-                  <AdsCard /> <AdsCard />
                 </TabPanel>
               </TabPanels>
             </Tabs>
@@ -1299,6 +1295,25 @@ const Adspy = () => {
                   </Flex>
                 </Flex>
               </CardBody>
+              <CardFooter
+                justify="space-between"
+                flexWrap="wrap"
+                sx={{
+                  "& > button": {
+                    minW: "100px",
+                  },
+                }}
+              >
+                <Button flex="1" variant="ghost" leftIcon={<BiLike />}>
+                  Like
+                </Button>
+                <Button flex="1" variant="ghost" leftIcon={<BiChat />}>
+                  Comment
+                </Button>
+                <Button flex="1" variant="ghost" leftIcon={<BiShare />}>
+                  Share
+                </Button>
+              </CardFooter>
             </Card>
           ))
         ) : (
