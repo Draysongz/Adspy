@@ -42,8 +42,12 @@ export default function AdsCard() {
                   <Avatar name="Page Name" src="https://bit.ly/sage-adebayo" />
 
                   <Box>
-                    <Heading size="sm">Page Name</Heading>
-                    <Text>Sponsored Ad</Text>
+                    {pageNames[index] && pageNames[index] !== "undefined" ? (
+                      <Text>{JSON.parse(pageNames[index])}</Text>
+                    ) : (
+                      <Text>No page name available</Text>
+                    )}
+                    <Text>{ad.ad_delivery_start_time}</Text>
                   </Box>
                 </Flex>
                 <Image

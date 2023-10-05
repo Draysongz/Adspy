@@ -341,10 +341,10 @@ const Products = () => {
               </AccordionButton>
             </h2>
             <AccordionPanel pb={4}>
-              Yes. You can spy on your competitor's ad and know their winning
-              creative and funnels. Create your FREE account, choose the
+              Yes. You can spy on your competitor&rsquo;s ad and know their
+              winning creative and funnels. Create your FREE account, choose the
               platform you want, input the keyword or advertiser name, and start
-              spying. Check "How it Works" to find out more.
+              spying. Check &ldquo;How it Works&rdquo; to find out more.
             </AccordionPanel>
           </AccordionItem>
 
@@ -358,10 +358,10 @@ const Products = () => {
               </AccordionButton>
             </h2>
             <AccordionPanel pb={4}>
-              Yes. You can spy on your competitor's ad and know their winning
-              creative and funnels. Create your FREE account, choose the
+              Yes. You can spy on your competitor&rsquo;s ad and know their
+              winning creative and funnels. Create your FREE account, choose the
               platform you want, input the keyword or advertiser name, and start
-              spying. Check "How it Works" to find out more.
+              spying. Check &ldquo;How it Works&rdquo; to find out more.
             </AccordionPanel>
           </AccordionItem>
 
@@ -375,10 +375,10 @@ const Products = () => {
               </AccordionButton>
             </h2>
             <AccordionPanel pb={4}>
-              Yes. You can spy on your competitor's ad and know their winning
-              creative and funnels. Create your FREE account, choose the
+              Yes. You can spy on your competitor&rsquo;s ad and know their
+              winning creative and funnels. Create your FREE account, choose the
               platform you want, input the keyword or advertiser name, and start
-              spying. Check "How it Works" to find out more.
+              spying. Check &ldquo;How it Works&rdquo; to find out more.
             </AccordionPanel>
           </AccordionItem>
 
@@ -392,10 +392,10 @@ const Products = () => {
               </AccordionButton>
             </h2>
             <AccordionPanel pb={4}>
-              Yes. You can spy on your competitor's ad and know their winning
-              creative and funnels. Create your FREE account, choose the
+              Yes. You can spy on your competitor&rsquo;s ad and know their
+              winning creative and funnels. Create your FREE account, choose the
               platform you want, input the keyword or advertiser name, and start
-              spying. Check "How it Works" to find out more.
+              spying. Check &ldquo;How it Works&rdquo; to find out more.
             </AccordionPanel>
           </AccordionItem>
         </Accordion>
