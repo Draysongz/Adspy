@@ -22,13 +22,18 @@ import {
 import React from "react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { useRef } from "react";
-import knoweth from "../images/knoweth.png";
+import knoweth from "../images/knoweth copy.png";
+import IG from "../images/IG.svg";
+import x from "../images/x.svg";
+import fb from "../images/fb.svg";
+import linked from "../images/linked.svg";
 import Image from "next/image";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
+import Nav from "@/components/Nav";
 
-const Register = () => {
+const Contact = () => {
   const btnRef = useRef();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -39,7 +44,8 @@ const Register = () => {
   return (
     <Flex direction={"column"}>
       {/* navigation bar */}
-      <>
+      <Nav />
+      {/* <>
         <Flex
           p={4}
           alignItems={"center"}
@@ -63,7 +69,7 @@ const Register = () => {
           <Flex gap={3} px={8}>
             <Link href="/register">
               <Button borderRadius={"md"} w={"13vw"} color={"white"}>
-                Login
+                Create Account
               </Button>
             </Link>
           </Flex>
@@ -121,7 +127,7 @@ const Register = () => {
                               w={["30vw"]}
                               color={"white"}
                             >
-                              Login
+                              Create Account
                             </Button>
                           </Link>
                         </Flex>
@@ -133,116 +139,86 @@ const Register = () => {
             </CardBody>
           </Card>
         </Flex>
-      </>
+      </> */}
 
       <Flex
         justifyContent={"space-between"}
         gap={5}
         alignItems={"center"}
         direction={"column"}
-        my={20}
       >
         <Flex
-          mt={["22%", "22%", "10%", "0%"]}
+          mt={["25%", "25%", "10%", "5%"]}
           w={["85vw", "85vw", "75vw", "45vw"]}
           direction={"column"}
         >
-          <Heading> Create Account</Heading>
-          <Text color={"#1B1D29"}>Enter Your Personal Details</Text>
+          <Heading mb={5}>Contact Us</Heading>
+          <Text color={"#1B1D29"} fontSize="sm">
+            Got some questions or feedback? We are here to help. Reach out to us
+            through the form below. Our team will get back to you as soon as
+            possible
+          </Text>
         </Flex>
 
         <Flex w={["85vw", "85vw", "75vw", "45vw"]}>
           <FormControl isRequired onSubmit={onSubmit}>
-            <FormLabel fontWeight={"500"}>Full Name</FormLabel>
+            <FormLabel fontWeight={"500"}>Name</FormLabel>
             <Input
               type="text"
-              placeholder="Enter your full name"
+              placeholder="Enter your Name"
               _placeholder={{ color: "#C5C0C0" }}
             />
-            <FormLabel mt={2} fontWeight={"500"}>
-              Email Address
-            </FormLabel>
+            <FormLabel fontWeight={"500"}>Email Address</FormLabel>
             <Input
               type="email"
               placeholder="Enter your email address"
               _placeholder={{ color: "#C5C0C0" }}
             />
-            <FormLabel mt={2} fontWeight={"500"}>
-              Username
+            <FormLabel mt={4} fontWeight={"500"}>
+              How can we help you?
             </FormLabel>
             <Input
               type="text"
-              placeholder="Enter your username"
+              placeholder="Enter your request or complaint"
               _placeholder={{ color: "#C5C0C0" }}
-            />
-            <FormLabel mt={2} fontWeight={"500"}>
-              Phone Number
-            </FormLabel>
-            <Input
-              type="number"
-              placeholder="Enter your Phone number"
-              _placeholder={{ color: "#C5C0C0" }}
-            />
-            <FormLabel mt={2} fontWeight={"500"}>
-              Password
-            </FormLabel>
-            <Input
-              type="text"
-              placeholder="Enter your password"
-              _placeholder={{ color: "#C5C0C0" }}
+              size="lg"
+              h={20}
             />
             <Button
-              mt={10}
+              mt={5}
               borderRadius={"md"}
               w={["80vw", "80vw", "75vw", "45vw"]}
             >
-              Create Account
+              Submit
             </Button>
-            <Flex
-              gap={5}
-              mt={10}
-              justifyContent={"space-between"}
-              direction={["column", "column", "row"]}
-            >
-              <Button
-                type={"submit"}
-                leftIcon={<FcGoogle />}
-                color={"#0066B2"}
-                fontSize={"lg"}
-                fontWeight={"300"}
-                borderRadius={"md"}
-                w={["80vw", "80vw", "30vw", "20vw"]}
-                variant={"outline"}
-              >
-                Sign Up With Google
-              </Button>
-
-              <Button
-                type={"submit"}
-                leftIcon={<BsFacebook />}
-                color={"#0066B2"}
-                fontSize={"lg"}
-                fontWeight={"300"}
-                borderRadius={"md"}
-                w={["80vw", "80vw", "30vw", "20vw"]}
-                variant={"outline"}
-              >
-                Sign Up With Facebook
-              </Button>
-            </Flex>
-            <Text mt={3} textAlign={"center"}>
-              Already have An Account?{" "}
-              <Link href="/login">
-                <span style={{ color: "#000000" }}>
-                  <strong>LOGIN</strong>
-                </span>
-              </Link>
-            </Text>
           </FormControl>
+        </Flex>
+
+        <Flex gap={5}>
+          <Text>Connect with us</Text>
+          <Flex
+            justifyContent={"space-between"}
+            gap={["5%", "5%", "10%", "10%"]}
+          >
+            <Box>
+              <Image src={IG} alt="instagram" w={"90%"} />
+            </Box>
+
+            <Box>
+              <Image src={fb} alt="facebook" w={"90%"} />
+            </Box>
+
+            <Box>
+              <Image src={linked} alt="linkedIn" w={"90%"} />
+            </Box>
+            <Box>
+              <Image src={x} alt="twitter" w={"90%"} />
+            </Box>
+          </Flex>
         </Flex>
       </Flex>
     </Flex>
   );
 };
 
-export default Register;
+export default Contact;

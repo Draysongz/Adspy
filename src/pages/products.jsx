@@ -237,7 +237,7 @@ const Products = () => {
           <Card h={["30vh", "35vh", "23vh", "35vh"]} minW={"27vw"}>
             <CardBody>
               <Flex direction={"column"} gap={5}>
-                <Image src={meta} alt="meta" width={"20"} />
+                <Image src={meta} alt="meta" width={"30"} />
                 <Heading fontSize={"md"}>
                   Meta Ads (Facebook & Instagram)
                 </Heading>
@@ -252,7 +252,7 @@ const Products = () => {
           <Card h={["30vh", "35vh", "23vh", "35vh"]} minW={"27vw"}>
             <CardBody>
               <Flex direction={"column"} gap={5}>
-                <Image src={youtube} alt="meta" width={"20"} />
+                <Image src={youtube} alt="meta" width={"30"} />
                 <Heading fontSize={"md"}>Google and Youtube Ads</Heading>
                 <Text>
                   Spy on your competitors ads on
@@ -265,7 +265,7 @@ const Products = () => {
           <Card h={["30vh", "35vh", "23vh", "35vh"]} minW={"27vw"}>
             <CardBody>
               <Flex direction={"column"} gap={5}>
-                <Image src={linkedin} alt="meta" width={"20"} />
+                <Image src={linkedin} alt="meta" width={"30"} />
                 <Heading fontSize={"md"}>LinkedIn Ads</Heading>
                 <Text>
                   Spy on your competitors ads on
@@ -285,7 +285,7 @@ const Products = () => {
           <Card h={["30vh", "35vh", "23vh", "35vh"]} minW={"27vw"}>
             <CardBody>
               <Flex direction={"column"} gap={5}>
-                <Image src={twitter} alt="meta" width={"20"} />
+                <Image src={twitter} alt="meta" width={"30"} />
                 <Heading fontSize={"md"}>Twitter Ads</Heading>
                 <Text>
                   Spy on your competitors ads within <br />
@@ -298,7 +298,7 @@ const Products = () => {
           <Card h={["35vh", "35vh", "23vh", "35vh"]} minW={"27vw"}>
             <CardBody>
               <Flex direction={"column"} gap={5}>
-                <Image src={writing} alt="meta" width={"20"} />
+                <Image src={writing} alt="meta" width={"30"} />
                 <Heading fontSize={"md"}>AI Writing</Heading>
                 <Text>
                   Write compelling copies and find the <br />
@@ -311,7 +311,7 @@ const Products = () => {
           <Card h={["30vh", "35vh", "23vh", "35vh"]} minW={"27vw"}>
             <CardBody>
               <Flex direction={"column"} gap={5}>
-                <Image src={pen} alt="meta" width={"20"} />
+                <Image src={pen} alt="meta" width={"30"} />
                 <Heading fontSize={"md"}>Workplace</Heading>
                 <Text>
                   Organize and plan your task for your <br />

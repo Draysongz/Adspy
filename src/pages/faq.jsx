@@ -36,13 +36,16 @@ import IG from "../images/IG.svg";
 import x from "../images/x.svg";
 import fb from "../images/fb.svg";
 import linked from "../images/linked.svg";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 
 const FaqPage = () => {
   const btnRef = useRef();
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Flex direction={"column"}>
-      <>
+      <Nav />
+      {/* <>
         <Flex
           p={4}
           alignItems={"center"}
@@ -150,7 +153,7 @@ const FaqPage = () => {
             </CardBody>
           </Card>
         </Flex>
-      </>
+      </> */}
 
       <Flex
         mt={["18%", "18%", "0%", "0%"]}
@@ -184,8 +187,8 @@ const FaqPage = () => {
 
       <Flex p={10} direction={"column"}>
         <Text textAlign={["center", "center", "start", "start"]}>
-          Have further questions? Feel free to email send us an email:
-          hello@Knoweth.co
+          Have further questions? Feel free to send us an email:
+          <u>hello@Knoweth.co</u>
         </Text>
         <Accordion allowToggle py={5}>
           <AccordionItem>
@@ -215,10 +218,9 @@ const FaqPage = () => {
               </AccordionButton>
             </h2>
             <AccordionPanel pb={4}>
-              Yes. You can spy on your competitor&rsquo;s ad and know their
-              winning creative and funnels. Create your FREE account, choose the
-              platform you want, input the keyword or advertiser name, and start
-              spying. Check &ldquo;How it Works&rdquo; to find out more.
+              We have Free and Paid Features. Our AI writing and Board is free
+              to use. You will also get a 7-day FREE trial to use our ADSPY,
+              after choosing a plan.
             </AccordionPanel>
           </AccordionItem>
 
@@ -232,10 +234,24 @@ const FaqPage = () => {
               </AccordionButton>
             </h2>
             <AccordionPanel pb={4}>
-              Yes. You can spy on your competitor&rsquo;s ad and know their
-              winning creative and funnels. Create your FREE account, choose the
-              platform you want, input the keyword or advertiser name, and start
-              spying. Check &ldquo;How it Works&rdquo; to find out more.
+              No. You can only spy/check your competitor&rsquo;s ad. However, we
+              have resources we&rsquo;ve put together that can help you run ads
+              effectively.
+            </AccordionPanel>
+          </AccordionItem>
+
+          <AccordionItem>
+            <h2>
+              <AccordionButton>
+                <Box as="span" flex="1" textAlign="left">
+                  How do I find the right audience?
+                </Box>
+                <AccordionIcon />
+              </AccordionButton>
+            </h2>
+            <AccordionPanel pb={4}>
+              With our AI writing, you&rsquo;d be able to find the right
+              audience to target for your ads.
             </AccordionPanel>
           </AccordionItem>
 
@@ -249,10 +265,7 @@ const FaqPage = () => {
               </AccordionButton>
             </h2>
             <AccordionPanel pb={4}>
-              Yes. You can spy on your competitor&rsquo;s ad and know their
-              winning creative and funnels. Create your FREE account, choose the
-              platform you want, input the keyword or advertiser name, and start
-              spying. Check &ldquo;How it Works&rdquo; to find out more.
+              You can write a compelling copy using our AI writing.
             </AccordionPanel>
           </AccordionItem>
 
@@ -266,10 +279,8 @@ const FaqPage = () => {
               </AccordionButton>
             </h2>
             <AccordionPanel pb={4}>
-              Yes. You can spy on your competitor&rsquo;s ad and know their
-              winning creative and funnels. Create your FREE account, choose the
-              platform you want, input the keyword or advertiser name, and start
-              spying. Check &ldquo;How it Works&rdquo; to find out more.
+              Create a board in our workspace and strategically organize your
+              results.
             </AccordionPanel>
           </AccordionItem>
 
@@ -283,10 +294,7 @@ const FaqPage = () => {
               </AccordionButton>
             </h2>
             <AccordionPanel pb={4}>
-              Yes. You can spy on your competitor&rsquo;s ad and know their
-              winning creative and funnels. Create your FREE account, choose the
-              platform you want, input the keyword or advertiser name, and start
-              spying. Check &ldquo;How it Works&rdquo; to find out more.
+              Anyone who has a business and wants to 10x their sales online
             </AccordionPanel>
           </AccordionItem>
 
@@ -294,22 +302,35 @@ const FaqPage = () => {
             <h2>
               <AccordionButton>
                 <Box as="span" flex="1" textAlign="left">
-                  Can&rsquo;t find the answer you need?
+                  Can I get a free trial before choosing a plan?
                 </Box>
                 <AccordionIcon />
               </AccordionButton>
             </h2>
             <AccordionPanel pb={4}>
-              Yes. You can spy on your competitor&rsquo;s ad and know their
-              winning creative and funnels. Create your FREE account, choose the
-              platform you want, input the keyword or advertiser name, and start
-              spying. Check &ldquo;How it Works&rdquo; to find out more.
+              You will have to choose a plan before you can get a free trial.
+              However, we have a free feature you can always use.
+            </AccordionPanel>
+          </AccordionItem>
+
+          <AccordionItem>
+            <h2>
+              <AccordionButton>
+                <Box as="span" flex="1" textAlign="left">
+                  Is there a support team?
+                </Box>
+                <AccordionIcon />
+              </AccordionButton>
+            </h2>
+            <AccordionPanel pb={4}>
+              Yes, you can always reach out to the support team if you
+              experience any problem and we&rsquo;d be glad to assist you.
             </AccordionPanel>
           </AccordionItem>
         </Accordion>
       </Flex>
-
-      <Flex bgColor={"#0066B2"} color={"white"} direction={"column"}>
+      <Footer />
+      {/* <Flex bgColor={"#0066B2"} color={"white"} direction={"column"}>
         <Flex
           p={["7%", "7%", "3%", "3%"]}
           w={["100vw", "100vw", "98vw", "98vw"]}
@@ -372,7 +393,7 @@ const FaqPage = () => {
         <Box alignSelf={"center"}>
           <Text>&copy;2023 Knoweth. All rights reserved</Text>
         </Box>
-      </Flex>
+      </Flex> */}
     </Flex>
   );
 };

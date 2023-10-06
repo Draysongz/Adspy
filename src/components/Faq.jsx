@@ -21,7 +21,7 @@ const Faq = () => {
     >
       <Heading textAlign={"center"}>Frequently Asked Questions (FAQ)</Heading>
 
-      <Accordion allowToggle>
+      <Accordion allowToggle mb={10}>
         <AccordionItem>
           <h2>
             <AccordionButton>

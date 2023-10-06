@@ -1,8 +1,9 @@
 import React from "react";
-import { Box, Flex, Heading, Text, Button, Image } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text, Button } from "@chakra-ui/react";
 import commerce from "../images/commerce.png";
 import estate from "../images/estate.png";
 import beauty from "../images/beauty.png";
+import fash from "../../public/fashion.png";
 import fashion from "../images/fashion.png";
 import more from "../images/more.png";
 import check from "../images/check.png";
@@ -11,6 +12,8 @@ import linked from "../images/linked.svg";
 import x from "../images/x.svg";
 import fb from "../images/fb.svg";
 import yt from "../images/yt.svg";
+import Image from "next/image";
+
 const Check = () => {
   return (
     <Flex
@@ -38,11 +41,11 @@ const Check = () => {
         >
           <Box
             backgroundRepeat={"no-repeat"}
-            bgImage={commerce}
             bgSize={"cover"}
             w={["85vw", "85vw", "85vw", "16vw"]}
             position={"relative"}
             h={["45vh", "45vh", "44vh"]}
+            style={{ backgroundImage: `url(${commerce.src})` }}
           >
             <Text
               w={["28vw", "28vw", "20vw", "8vw"]}
@@ -57,11 +60,11 @@ const Check = () => {
 
           <Box
             backgroundRepeat={"no-repeat"}
-            bgImage={fashion}
             bgSize={"cover"}
             w={["85vw", "85vw", "85vw", "16vw"]}
             position={"relative"}
             h={["45vh", "45vh", "44vh"]}
+            style={{ backgroundImage: `url(${fash.src})` }}
           >
             <Text
               w={["28vw", "28vw", "20vw", "8vw"]}
@@ -76,11 +79,11 @@ const Check = () => {
 
           <Box
             backgroundRepeat={"no-repeat"}
-            bgImage={estate}
             bgSize={"cover"}
             w={["85vw", "85vw", "85vw", "16vw"]}
             position={"relative"}
             h={["45vh", "45vh", "44vh"]}
+            style={{ backgroundImage: `url(${estate.src})` }}
           >
             <Text
               w={["28vw", "28vw", "20vw", "8vw"]}
@@ -100,6 +103,7 @@ const Check = () => {
             w={["85vw", "85vw", "85vw", "16vw"]}
             position={"relative"}
             h={["45vh", "45vh", "44vh"]}
+            style={{ backgroundImage: `url(${beauty.src})` }}
           >
             <Text
               w={["28vw", "28vw", "20vw", "8vw"]}
@@ -114,11 +118,11 @@ const Check = () => {
 
           <Box
             backgroundRepeat={"no-repeat"}
-            bgImage={more}
             bgSize={"cover"}
             w={["85vw", "85vw", "85vw", "16vw"]}
             position={"relative"}
             h={["45vh", "45vh", "44vh"]}
+            style={{ backgroundImage: `url(${more.src})` }}
           >
             <Text
               w={["28vw", "28vw", "20vw", "8vw"]}
@@ -141,7 +145,7 @@ const Check = () => {
         py={5}
       >
         <Flex
-          bgImage={check}
+          style={{ backgroundImage: `url(${check.src})` }}
           h={["45vh", "45vh", "60vh"]}
           w={["85vw", "85vw", "85vw", "38vw"]}
           bgRepeat={"no-repeat"}
@@ -170,7 +174,7 @@ const Check = () => {
             >
               <Image
                 src={linked}
-                alt="instagram"
+                alt="linkedin"
                 w={["17%", "17%", "20%", "10%"]}
               />
               <Text w={["50vw", "50vw", "50vw", "12vw"]}>
@@ -187,7 +191,7 @@ const Check = () => {
               h={"6vh"}
               alignItems={"center"}
             >
-              <Image src={x} alt="instagram" w={["17%", "17%", "27%", "10%"]} />
+              <Image src={x} alt="x" w={["17%", "17%", "27%", "10%"]} />
               <Text w={["50vw", "50vw", "50vw", "12vw"]}>Twitter Ads Spy </Text>
             </Flex>
           </Flex>
@@ -203,7 +207,7 @@ const Check = () => {
               >
                 <Image
                   src={yt}
-                  alt="instagram"
+                  alt="youtube"
                   w={["17%", "17%", "27%", "10%"]}
                 />
                 <Text w={["50vw", "50vw", "50vw", "12vw"]}>
