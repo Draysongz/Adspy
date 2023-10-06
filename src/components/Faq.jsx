@@ -32,12 +32,10 @@ const Faq = () => {
             </AccordionButton>
           </h2>
           <AccordionPanel pb={4}>
-            <Text>
-              You can spy on your competitor&rsquo;s ad and know their winning
-              creative and funnels. Create your FREE account, choose the
-              platform you want, input the keyword or advertiser name, and start
-              spying. Check &ldquo;How it Works&rdquo; to find out more.
-            </Text>
+            You can spy on your competitor&rsquo;s ad and know their winning
+            creative and funnels. Create your FREE account, choose the platform
+            you want, input the keyword or advertiser name, and start spying.
+            Check &ldquo;How it Works&rdquo; to find out more.
           </AccordionPanel>
         </AccordionItem>
 

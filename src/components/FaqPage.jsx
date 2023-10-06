@@ -294,7 +294,7 @@ const FaqPage = () => {
             <h2>
               <AccordionButton>
                 <Box as="span" flex="1" textAlign="left">
-                  Can’t find the answer you need?
+                  Can&rsquo;t find the answer you need?
                 </Box>
                 <AccordionIcon />
               </AccordionButton>
