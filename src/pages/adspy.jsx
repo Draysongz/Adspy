@@ -1304,8 +1304,27 @@ const Adspy = () => {
                   </Flex>
 
                   <Flex>
+                  {pageNames[index] && pageNames[index].htmlValue ? (
+                      <Text dangerouslySetInnerHTML={{ __html: pageNames[index].htmlValue }} />
+) : (
+  <Text>NO ad description</Text>
+)}
+                  </Flex>
+
+                  <Flex border={'2px solid red'} h={'30vh'} align="center" justify="center">
+
+  {pageNames[index] && pageNames[index].adImageUrl ? (
+    <Image borderRadius={'md'} w={'100%'} h={'100%'} maxW="100%" maxH="100%" src={pageNames[index].adImageUrl} alt="Original Image" />
+  ) : (
+    <Text>No Image Available</Text>
+  )}
+</Flex>
+
+<Flex justifyContent={'space-between'} alignItems={'center'}>
+  <Box>
+  <Flex>
                   {pageNames[index] && pageNames[index].pageTitle ? (
-                      <Heading fontSize={'xl'}>{pageNames[index].pageTitle}</Heading>
+                      <Heading fontSize={'lg'}>{pageNames[index].pageTitle}</Heading>
 ) : (
   <Text>NO ad description</Text>
 )}
@@ -1318,14 +1337,19 @@ const Adspy = () => {
   <Text>NO ad description</Text>
 )}
                   </Flex>
+  </Box>
 
-                  <Flex border={'2px solid red'} h={'30vh'} align="center" justify="center">
-  {pageNames[index] && pageNames[index].adImageUrl ? (
-    <Image borderRadius={'md'} w={'100%'} h={'100%'} maxW="100%" maxH="100%" src={pageNames[index].adImageUrl} alt="Original Image" />
-  ) : (
-    <Text>No Image Available</Text>
-  )}
+  <Box>
+    {pageNames[index] && pageNames[index].cta ?(
+      <Button borderRadius={'md'}>{pageNames[index].cta}</Button>
+    ) : (
+      <Text>No cta button</Text>
+    )}
+  </Box>
 </Flex>
+
+
+
 
                 </Flex>
               </CardBody>

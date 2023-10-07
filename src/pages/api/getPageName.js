@@ -25,6 +25,7 @@ const getPageName = async (req, res) => {
     let adImageUrl= null
     let pageTitle= null
     let pageDescription= null
+    let cta= null
 
     // Search for 'pageName' in the HTML content
     if (htmlContent.includes('pageName')) {
@@ -56,7 +57,27 @@ function cleanText(text) {
 
 
 
+   // Search for '__html' in the HTML content
+   if (htmlContent.includes('__html')) {
+    const startIndex = htmlContent.indexOf('"__html"');
+    if (startIndex !== -1) {
+      const startValueIndex = htmlContent.indexOf('"', startIndex + 9) + 1; // 9 is the length of "__html":
+      const endValueIndex = htmlContent.indexOf('"', startValueIndex);
+
+      if (startValueIndex !== -1 && endValueIndex !== -1) {
+        htmlValue = htmlContent.slice(startValueIndex, endValueIndex);
+        htmlValue= cleanText(htmlValue).slice(0, 150)
+        htmlValue= `${htmlValue}...`
+      }
+    }
+  }
     
+
+  if (htmlContent.includes('"cta_text":')) {
+    const startIndex = htmlContent.indexOf('"cta_text":');
+    const endIndex = htmlContent.indexOf(',', startIndex);
+    cta = cleanText(htmlContent.slice(startIndex + 12, endIndex)).replace(/^"(.*)"$/, '$1');
+  }
 
       // Search for 'title' in the HTML content
    // Extract title and remove surrounding double quotes
@@ -100,7 +121,7 @@ function cleanText(text) {
       // console.log("pagename", pageName)
       // console.log('htmlValue', pretty(htmlValue))
       // console.log('imageUrl', pretty(originalImageUrl))
-      res.status(200).json({ pageName, pageDescription, pageTitle, originalImageUrl, adImageUrl });
+      res.status(200).json({ pageName, pageDescription, pageTitle, cta, originalImageUrl,htmlValue, adImageUrl });
     } else {
       // Handle the case when either 'pageName' or '__html' is not found
       res.status(404).json({ error: 'Page Name or __html not found' });
