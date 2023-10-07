@@ -8,6 +8,7 @@ import {
   AccordionItem,
   AccordionPanel,
   AccordionIcon,
+  Text
 } from "@chakra-ui/react";
 
 const Faq = () => {

@@ -42,6 +42,7 @@ import { FcGoogle } from "react-icons/fc";
 import axios from "axios";
 import { Country } from "country-state-city";
 import AdsCard from "@/components/adsCard";
+import { useRouter } from "next/navigation";
 
 const Adspy = () => {
   const btnRef = useRef();
@@ -67,6 +68,7 @@ const Adspy = () => {
     </option>
   ));
 
+  const router=useRouter()
   console.log(adsData);
 
   const handleSearchAds = () => {
@@ -168,6 +170,9 @@ const Adspy = () => {
     setSelectedCountry("");
     setSortBy("");
     setStartDate("");
+    setAdsData([])
+    setPageNames([])
+    setAdSnapshotUrls([])
   };
 
   return (
@@ -1279,7 +1284,7 @@ const Adspy = () => {
       <Flex gap={5} p={10} color="white" flexWrap={"wrap"} background={"blue"}>
         {adsData && adsData.data && adsData.data.length > 0 ? (
           adsData.data.map((ad, index) => (
-            <Card h={'60vh'} w={"30vw"} key={index}>
+            <Card h={'70vh'} w={"30vw"} key={index} onClick={()=>router.push(ad.ad_snapshot_url)}>
               <CardBody>
                 <Flex direction={'column'} gap={5}>
                   <Flex alignItems={"center"} gap={2}>
@@ -1299,8 +1304,16 @@ const Adspy = () => {
                   </Flex>
 
                   <Flex>
-                  {pageNames[index] && pageNames[index].htmlValue ? (
-                      <Text dangerouslySetInnerHTML={{ __html: pageNames[index].htmlValue }} />
+                  {pageNames[index] && pageNames[index].pageTitle ? (
+                      <Heading fontSize={'xl'}>{pageNames[index].pageTitle}</Heading>
+) : (
+  <Text>NO ad description</Text>
+)}
+                  </Flex>
+
+                  <Flex>
+                  {pageNames[index] && pageNames[index].pageDescription ? (
+                      <Text dangerouslySetInnerHTML={{ __html: pageNames[index].pageDescription }} />
 ) : (
   <Text>NO ad description</Text>
 )}
@@ -1316,7 +1329,8 @@ const Adspy = () => {
 
                 </Flex>
               </CardBody>
-              <CardFooter
+              <CardFooter 
+              mt={'-2%'}
                 justify="space-between"
                 flexWrap="wrap"
                 sx={{

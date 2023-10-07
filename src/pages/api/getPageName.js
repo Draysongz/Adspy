@@ -23,6 +23,8 @@ const getPageName = async (req, res) => {
     let htmlValue = null;
     let originalImageUrl = null;
     let adImageUrl= null
+    let pageTitle= null
+    let pageDescription= null
 
     // Search for 'pageName' in the HTML content
     if (htmlContent.includes('pageName')) {
@@ -54,22 +56,23 @@ function cleanText(text) {
 
 
 
-
     
-    // Search for '__html' in the HTML content
-    if (htmlContent.includes('__html')) {
-      const startIndex = htmlContent.indexOf('"__html"');
-      if (startIndex !== -1) {
-        const startValueIndex = htmlContent.indexOf('"', startIndex + 9) + 1; // 9 is the length of "__html":
-        const endValueIndex = htmlContent.indexOf('"', startValueIndex);
 
-        if (startValueIndex !== -1 && endValueIndex !== -1) {
-          htmlValue = htmlContent.slice(startValueIndex, endValueIndex);
-          htmlValue = cleanText(htmlValue).slice(0, 190);
-          htmlValue= `${htmlValue}...`
-        }
-      }
-    }
+      // Search for 'title' in the HTML content
+   // Extract title and remove surrounding double quotes
+   if (htmlContent.includes('"title":')) {
+    const startIndex = htmlContent.indexOf('"title":');
+    const endIndex = htmlContent.indexOf(',', startIndex);
+    pageTitle = cleanText(htmlContent.slice(startIndex + 8, endIndex)).replace(/^"(.*)"$/, '$1');
+  }
+
+  // Extract linkDescription
+  if (htmlContent.includes('"link_description":')) {
+    const startIndex = htmlContent.indexOf('"link_description":');
+    const endIndex = htmlContent.indexOf(',', startIndex);
+    pageDescription = cleanText(htmlContent.slice(startIndex + 20  , endIndex));
+    pageDescription= `${pageDescription}....`
+  }
    
 
     // Search for 'original_image_url' in the HTML content
@@ -92,12 +95,12 @@ function cleanText(text) {
     } 
     console.log(pretty(htmlContent))
 
-    if (pageName !== null && htmlValue !== null) {
+    if (pageName !== null && pageTitle !== null && pageDescription !== null) {
       // Send pageName, htmlValue, and originalImageUrl as a response
       // console.log("pagename", pageName)
       // console.log('htmlValue', pretty(htmlValue))
       // console.log('imageUrl', pretty(originalImageUrl))
-      res.status(200).json({ pageName, htmlValue, originalImageUrl, adImageUrl });
+      res.status(200).json({ pageName, pageDescription, pageTitle, originalImageUrl, adImageUrl });
     } else {
       // Handle the case when either 'pageName' or '__html' is not found
       res.status(404).json({ error: 'Page Name or __html not found' });
