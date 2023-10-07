@@ -1291,7 +1291,7 @@ const Adspy = () => {
                   {pageNames[index] && pageNames[index].originalImageUrl ? (
   <Image borderRadius={'full'} w={10} h={10} src={pageNames[index].originalImageUrl} alt="Original Image" />
 ) : (
-  <Text>''</Text>
+  <Text> </Text>
 )}
                     <Box>
                     {pageNames[index] &&  pageNames[index].pageName ? (

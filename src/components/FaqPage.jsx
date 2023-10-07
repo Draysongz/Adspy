@@ -260,7 +260,7 @@ const FaqPage = () => {
             <h2>
               <AccordionButton>
                 <Box as="span" flex="1" textAlign="left">
-                  After spying on my competitors' ads, what do I do?
+                  After spying on my competitors&apos; ads, what do I do?
                 </Box>
                 <AccordionIcon />
               </AccordionButton>
