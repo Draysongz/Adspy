@@ -1,5 +1,3 @@
-
-
 export const Button = {
   baseStyle: {
     borderRadius: "60px",
@@ -23,19 +21,19 @@ export const Button = {
       color: "white",
       bg: "#0066B2",
       _hover: {
-        bg: "white",
-        color: '#0066B2',
-        border: '1px solid #0066B2'
+        bg: "#9cccf0",
+        color: "#0066B2",
+        border: "1px solid #0066B2",
       },
     },
     outline: {
       bg: "transparent",
-      color: '#0066B2',
-      border: '1px solid ',
-      borderColor: '#0066B2',
+      color: "#0066B2",
+      border: "1px solid ",
+      borderColor: "#0066B2",
       _hover: {
         bg: "gray.400",
-        border: '1px solid #0066B2',
+        border: "1px solid #0066B2",
       },
     },
     oauth: {

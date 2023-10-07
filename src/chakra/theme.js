@@ -7,13 +7,20 @@
 import { extendTheme } from "@chakra-ui/react";
 import { Button } from "./button";
 
+// 1. Add your color mode config
+const config = {
+  initialColorMode: "light",
+  useSystemColorMode: false,
+};
+
 // 2. Call `extendTheme` and pass your custom values
 export const theme = extendTheme({
+  config,
   colors: {
     brand: {
-      100: "#1808A3",
+      100: "#0066b2",
       // ...
-      900: "#31CD31",
+      900: "#ffffff",
     },
   },
   fonts: {
@@ -23,7 +30,7 @@ export const theme = extendTheme({
   styles: {
     global: () => ({
       body: {
-        bg: "#FFFFFF",
+        bg: "#ffffff",
       },
     }),
   },

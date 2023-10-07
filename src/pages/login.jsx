@@ -3,7 +3,6 @@
 import {
   Box,
   Flex,
-  Image,
   Text,
   Button,
   Card,
@@ -24,6 +23,7 @@ import React from "react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { useRef } from "react";
 import knoweth from "../images/knoweth copy.png";
+import Image from "next/image";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
@@ -172,7 +172,7 @@ const Login = () => {
               </Text>
             </Link>
             <Button
-              mt={2}
+              mt={5}
               borderRadius={"md"}
               w={["80vw", "80vw", "75vw", "45vw"]}
             >
