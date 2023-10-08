@@ -5,6 +5,7 @@ import x from "../images/x.svg";
 import fb from "../images/fb.svg";
 import linked from "../images/linked.svg";
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -40,7 +41,9 @@ const Footer = () => {
 
         <Flex direction={"column"} gap={5}>
           <Heading fontSize={"lg"}>Support</Heading>
-          <Text>Contact Us</Text>
+          <Link href="/contact">
+            <Text>Contact Us</Text>
+          </Link>
           <Text>FAQs</Text>
         </Flex>
 

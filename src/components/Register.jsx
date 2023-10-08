@@ -55,7 +55,9 @@ const Register = () => {
             <Link href="/faq">
               <Text>FAQS</Text>
             </Link>
-            <Text>Contact Us</Text>
+            <Link href="/contact">
+              <Text>Contact Us</Text>
+            </Link>
           </Flex>
 
           <Flex gap={3} px={8}>
@@ -109,7 +111,9 @@ const Register = () => {
                           <Link href="/faq">
                             <Text>FAQS</Text>
                           </Link>
-                          <Text>Contact Us</Text>
+                          <Link href="/contact">
+                            <Text>Contact Us</Text>
+                          </Link>
                         </Flex>
 
                         <Flex gap={3} mt={6}>

@@ -63,7 +63,7 @@ const FaqPage = () => {
             <Link href="/faq">
               <Text>FAQS</Text>
             </Link>
-            <Text>Contact Us</Text>
+            <Link href="/contact"><Text>Contact Us</Text></Link>
           </Flex>
 
           <Flex gap={3} px={8}>
@@ -122,7 +122,7 @@ const FaqPage = () => {
                           <Link href="/faq">
                             <Text>FAQS</Text>
                           </Link>
-                          <Text>Contact Us</Text>
+                          <Link href="/contact"><Text>Contact Us</Text></Link>
                         </Flex>
 
                         <Flex gap={3} mt={6}>
@@ -362,7 +362,7 @@ const FaqPage = () => {
 
           <Flex direction={"column"} gap={5}>
             <Heading fontSize={"lg"}>Support</Heading>
-            <Text>Contact Us</Text>
+            <Link href="/contact"><Text>Contact Us</Text></Link>
             <Text>FAQs</Text>
           </Flex>
 
