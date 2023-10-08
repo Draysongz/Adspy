@@ -32,6 +32,7 @@ import {
   Input,
   Circle,
   Stack,
+  CardHeader,
 } from "@chakra-ui/react";
 import { BiLike, BiShare, BiChat } from "react-icons/bi";
 import { HamburgerIcon } from "@chakra-ui/icons";
@@ -42,8 +43,6 @@ import { FcGoogle } from "react-icons/fc";
 import axios from "axios";
 import { Country } from "country-state-city";
 import AdsCard from "@/components/adsCard";
-import NavProfile from "@/components/NavWithProfile";
-import NavProfile from "@/components/NavWithProfile";
 import { useRouter } from "next/navigation";
 
 const Adspy = () => {
@@ -179,8 +178,7 @@ const Adspy = () => {
 
   return (
     <Flex direction={"column"}>
-      <NavProfile />
-      {/* <>
+      <>
         <Card>
           <Flex
             p={4}
@@ -264,9 +262,7 @@ const Adspy = () => {
                           <Link to="/faq">
                             <Text>FAQS</Text>
                           </Link>
-                          <Link href="/contact">
-                            <Text>Contact Us</Text>
-                          </Link>
+                          <Text>Contact Us</Text>
                         </Flex>
 
                         <Flex gap={3} mt={6}>
@@ -297,7 +293,7 @@ const Adspy = () => {
             </CardBody>
           </Card>
         </Flex>
-      </> */}
+      </>
 
       <Flex
         mt={{ xs: "10", md: "none" }}
@@ -1286,34 +1282,46 @@ const Adspy = () => {
         </Stack>
         <Flex direction={"column"} justifyContent={"center"}></Flex>
       </Flex>
-      <Flex gap={5} p={10} color="white" flexWrap={"wrap"} background={"blue"}>
+      <Flex
+        gap={10}
+        justifyContent="space-between"
+        p={10}
+        color="white"
+        flexWrap={"wrap"}
+        background={"#FBFBFB"}
+      >
         {adsData && adsData.data && adsData.data.length > 0 ? (
           adsData.data.map((ad, index) => (
-            <Card h={"60vh"} w={"30vw"} key={index}>
+            <Card
+              maxW="lg"
+              key={index}
+              onClick={() => router.push(ad.ad_snapshot_url)}
+            >
+              <CardHeader>
+                <Flex alignItems={"center"} gap={2}>
+                  {pageNames[index] && pageNames[index].originalImageUrl ? (
+                    <Image
+                      borderRadius={"full"}
+                      w={10}
+                      h={10}
+                      src={pageNames[index].originalImageUrl}
+                      alt="Original Image"
+                    />
+                  ) : (
+                    <Text> </Text>
+                  )}
+                  <Box>
+                    {pageNames[index] && pageNames[index].pageName ? (
+                      <Text>{JSON.parse(pageNames[index].pageName)}</Text>
+                    ) : (
+                      <Text>No page name available</Text>
+                    )}
+                    <Text>{ad.ad_delivery_start_time}</Text>
+                  </Box>
+                </Flex>
+              </CardHeader>
               <CardBody>
                 <Flex direction={"column"} gap={5}>
-                  <Flex alignItems={"center"} gap={2}>
-                    {pageNames[index] && pageNames[index].originalImageUrl ? (
-                      <Image
-                        borderRadius={"full"}
-                        w={10}
-                        h={10}
-                        src={pageNames[index].originalImageUrl}
-                        alt="Original Image"
-                      />
-                    ) : (
-                      <Text>''</Text>
-                    )}
-                    <Box>
-                      {pageNames[index] && pageNames[index].pageName ? (
-                        <Text>{JSON.parse(pageNames[index].pageName)}</Text>
-                      ) : (
-                        <Text>No page name available</Text>
-                      )}
-                      <Text>{ad.ad_delivery_start_time}</Text>
-                    </Box>
-                  </Flex>
-
                   <Flex>
                     {pageNames[index] && pageNames[index].htmlValue ? (
                       <Text
@@ -1327,24 +1335,66 @@ const Adspy = () => {
                   </Flex>
 
                   <Flex
-                    border={"2px solid red"}
-                    h={"30vh"}
+                    // border={"2px solid red"}
                     align="center"
                     justify="center"
                   >
                     {pageNames[index] && pageNames[index].adImageUrl ? (
                       <Image
+                        objectFit="cover"
                         borderRadius={"md"}
-                        w={"100%"}
-                        h={"100%"}
-                        maxW="100%"
-                        maxH="100%"
+                        // w={"100%"}
+                        // h={"100%"}
+                        maxW="70%"
+                        maxH="70%"
                         src={pageNames[index].adImageUrl}
                         alt="Original Image"
                       />
                     ) : (
                       <Text>No Image Available</Text>
                     )}
+                  </Flex>
+
+                  <Flex
+                    justifyContent={"space-between"}
+                    alignItems={"center"}
+                    gap={5}
+                  >
+                    <Box>
+                      <Flex>
+                        {pageNames[index] && pageNames[index].pageTitle ? (
+                          <Heading fontSize={"md"}>
+                            {pageNames[index].pageTitle}
+                          </Heading>
+                        ) : (
+                          <Text>NO ad description</Text>
+                        )}
+                      </Flex>
+
+                      <Flex>
+                        {pageNames[index] &&
+                        pageNames[index].pageDescription ? (
+                          <Text
+                            fontSize={"sm"}
+                            dangerouslySetInnerHTML={{
+                              __html: pageNames[index].pageDescription,
+                            }}
+                          />
+                        ) : (
+                          <Text>NO ad description</Text>
+                        )}
+                      </Flex>
+                    </Box>
+
+                    <Box>
+                      {pageNames[index] && pageNames[index].cta ? (
+                        <Button borderRadius={"md"}>
+                          {pageNames[index].cta}
+                        </Button>
+                      ) : (
+                        <Text>No cta button</Text>
+                      )}
+                    </Box>
                   </Flex>
                 </Flex>
               </CardBody>
