@@ -20,19 +20,14 @@ import {
   Input,
 } from "@chakra-ui/react";
 import React from "react";
-import { HamburgerIcon } from "@chakra-ui/icons";
 import { useRef } from "react";
-import knoweth from "../images/knoweth copy.png";
 import IG from "../images/IG.svg";
 import x from "../images/x.svg";
 import fb from "../images/fb.svg";
 import linked from "../images/linked.svg";
 import Image from "next/image";
 import Link from "next/link";
-import { FcGoogle } from "react-icons/fc";
-import { BsFacebook } from "react-icons/bs";
 import Nav from "@/components/Nav";
-import { SideBarFunc } from "@/components/AiBoard/sideBoard";
 
 const Contact = () => {
   const btnRef = useRef();
@@ -44,9 +39,7 @@ const Contact = () => {
   };
   return (
     <Flex direction={"column"}>
-      {/* navigation bar */}
       <Nav />
-      {/* <SideBarFunc /> */}
       <Flex
         justifyContent={"space-between"}
         gap={5}
