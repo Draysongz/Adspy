@@ -1283,9 +1283,9 @@ const Adspy = () => {
         <Flex direction={"column"} justifyContent={"center"}></Flex>
       </Flex>
       <Flex
-        gap={10}
+        gap={5}
         justifyContent="space-between"
-        p={10}
+        p={5}
         color="white"
         flexWrap={"wrap"}
         background={"#FBFBFB"}
@@ -1293,7 +1293,7 @@ const Adspy = () => {
         {adsData && adsData.data && adsData.data.length > 0 ? (
           adsData.data.map((ad, index) => (
             <Card
-              maxW="lg"
+              maxW={["sm", "md"]}
               key={index}
               onClick={() => router.push(ad.ad_snapshot_url)}
             >
