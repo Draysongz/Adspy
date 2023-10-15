@@ -26,8 +26,10 @@ import x from "../images/x.svg";
 import fb from "../images/fb.svg";
 import linked from "../images/linked.svg";
 import Image from "next/image";
-import Link from "next/link";
+
 import Nav from "@/components/Nav";
+import SidebarWithHeader from "@/components/AiBoard/SideBar";
+import { SideBarFunc } from "@/components/AiBoard/SideDash";
 
 const Contact = () => {
   const btnRef = useRef();
