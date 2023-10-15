@@ -19,15 +19,12 @@ import {
 } from "@chakra-ui/react";
 // Here we have used react-icons package for the icons
 import { BiCheck } from "react-icons/bi";
-import { BsFillCloudCheckFill } from "react-icons/bs";
-import { AiOutlineCloudServer } from "react-icons/ai";
-import { FaServer } from "react-icons/fa";
-import { IconType } from "react-icons";
 import Month3 from "@/components/Pricing/3months";
 import Month6 from "@/components/Pricing/6months";
 import Year1 from "@/components/Pricing/1year";
 import Year2 from "@/components/Pricing/2years";
 
+//Array of Pricing Plans
 const plansList = [
   {
     title: "Basic Plan (Lifetime)",
@@ -67,6 +64,7 @@ const plansList = [
   },
 ];
 
+//Container for displaying cards
 const ThreeTiersPricing = () => {
   return (
     <Container maxW="7xl" py="8" px="0">
@@ -83,6 +81,8 @@ const ThreeTiersPricing = () => {
     </Container>
   );
 };
+
+//Pricing card render
 
 const PricingCard = ({ title, price, icon, features, cta, index }) => {
   const cardBackgroundColor =

@@ -41,7 +41,7 @@ const Nav = () => {
           <Link href="/products">
             <Text>Products</Text>
           </Link>
-          <Text>How it works</Text>
+          <Link href="/howitworks">How it works</Link>
           <Link href="/pricing">Pricing</Link>
           <Link href="/faq">
             <Text>FAQS</Text>
