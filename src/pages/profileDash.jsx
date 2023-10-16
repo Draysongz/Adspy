@@ -30,10 +30,10 @@ import { FaBell } from "react-icons/fa";
 import { AiOutlineTeam, AiOutlineHome } from "react-icons/ai";
 import { BsFolder2, BsCalendarCheck } from "react-icons/bs";
 import { FiMenu } from "react-icons/fi";
-import { RiFlashlightFill } from "react-icons/ri";
 import knoweth from "../images/knoweth.png";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 export default function ProfileDash() {
   const { isOpen, onClose, onOpen } = useDisclosure();
