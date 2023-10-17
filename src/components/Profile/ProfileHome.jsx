@@ -31,10 +31,14 @@ import {
 } from "@chakra-ui/react";
 import { ChevronDownIcon, EditIcon } from "@chakra-ui/icons";
 // Here we have used react-icons package for the icons
+import { CiViewBoard } from "react-icons/ci";
 import { FaBell } from "react-icons/fa";
+import { PiNotePencilThin } from "react-icons/pi";
 import { AiOutlineTeam, AiOutlineHome } from "react-icons/ai";
-import { BsFolder2, BsCalendarCheck } from "react-icons/bs";
-import { FiMenu } from "react-icons/fi";
+import { BsEye, BsShield } from "react-icons/bs";
+import { FiMenu, FiSettings } from "react-icons/fi";
+import { BiSupport } from "react-icons/bi";
+import { HiOutlineLogout } from "react-icons/hi";
 import knoweth from "../../images/knoweth.png";
 import Link from "next/link";
 import Image from "next/image";
@@ -208,23 +212,25 @@ const SidebarContent = ({ ...props }) => (
       aria-label="Main Navigation"
     >
       <NavItem icon={AiOutlineHome}>Home</NavItem>
-      <NavItem icon={AiOutlineTeam}>Ads Spy</NavItem>
-      <NavItem icon={BsFolder2}>Board</NavItem>
-      <NavItem icon={BsCalendarCheck}>Ai Writing</NavItem>
-      <NavItem icon={AiOutlineHome}>Affilates</NavItem>
-      <NavItem icon={AiOutlineTeam}>Manage Subscription</NavItem>
+      <NavItem icon={BsEye}>Ads Spy</NavItem>
+      <NavItem icon={CiViewBoard}>Board</NavItem>
+      <NavItem icon={PiNotePencilThin}>Ai Writing</NavItem>
+      <NavItem icon={AiOutlineTeam}>Affilates</NavItem>
+      <NavItem icon={BsShield}>Manage Subscription</NavItem>
 
       <Menu>
         <MenuButton as={Button} variant="ghost" rightIcon={<ChevronDownIcon />}>
-          <NavItem icon={BsFolder2}> Settings</NavItem>
+          <NavItem icon={FiSettings}> Settings</NavItem>
         </MenuButton>
         <MenuList>
-          <MenuItem>Profile</MenuItem>
+          <MenuItem onClick={() => router.push("/profileDash")}>
+            Profile
+          </MenuItem>
           <MenuItem>Change Password</MenuItem>
         </MenuList>
       </Menu>
-      <NavItem icon={BsCalendarCheck}>Support</NavItem>
-      <NavItem icon={BsCalendarCheck}>Logout</NavItem>
+      <NavItem icon={BiSupport}>Support</NavItem>
+      <NavItem icon={HiOutlineLogout}>Logout</NavItem>
     </Flex>
   </Box>
 );

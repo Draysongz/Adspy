@@ -40,10 +40,14 @@ import {
 } from "@chakra-ui/react";
 import { ChevronDownIcon, EditIcon } from "@chakra-ui/icons";
 // Here we have used react-icons package for the icons
+import { CiViewBoard } from "react-icons/ci";
 import { FaBell } from "react-icons/fa";
+import { PiNotePencilThin } from "react-icons/pi";
 import { AiOutlineTeam, AiOutlineHome } from "react-icons/ai";
-import { BsFolder2, BsCalendarCheck } from "react-icons/bs";
-import { FiMenu } from "react-icons/fi";
+import { BsEye, BsShield } from "react-icons/bs";
+import { FiMenu, FiSettings } from "react-icons/fi";
+import { BiSupport } from "react-icons/bi";
+import { HiOutlineLogout } from "react-icons/hi";
 import knoweth from "../../images/knoweth.png";
 import Link from "next/link";
 import Image from "next/image";
@@ -110,28 +114,78 @@ export default function ManageSubscriptions() {
             bg={useColorModeValue("white", "gray.700")}
             rounded={"xl"}
             boxShadow={"lg"}
-            p={6}
+            p={10}
             my={4}
           >
-            <Heading>Subscriptions and Billing</Heading>{" "}
-            <Box>
-              {" "}
-              <Text>Active Subscription</Text>
-              <Heading>PRO Plan (Recommended)</Heading>
-              <Flex>
-                <Button>Active</Button>
-                <Button>Monthly</Button>
-                <Button>Upgrade</Button>
+            <Heading size={"md"}>Subscriptions and Billing</Heading>{" "}
+            <Box
+              border={"1px solid #0066B2"}
+              p={5}
+              bg={"rgba(0, 102, 178, 0.10)"}
+            >
+              <Text color={"#747474"}>Active Subscription</Text>
+              <Heading
+                fontSize={"24px"}
+                fontStyle="normal"
+                fontWeight={"500"}
+                mt={1}
+              >
+                PRO Plan (Recommended)
+              </Heading>
+              <Flex my={5} gap={5} justify={"space-between"}>
+                <Flex gap={3}>
+                  {" "}
+                  <Button
+                    bg={"rgba(26, 191, 63, 0.20)"}
+                    color={"#1ABF3F"}
+                    size="sm"
+                  >
+                    Active
+                  </Button>
+                  <Button
+                    bg={"rgba(0, 102, 178, 0.23)"}
+                    color={"#0066B2"}
+                    size="sm"
+                  >
+                    Monthly
+                  </Button>
+                </Flex>
+
+                <Button
+                  variant={"outline"}
+                  color={"#0066B2"}
+                  rounded={"md"}
+                  bg={"white"}
+                  size={["sm", "md"]}
+                >
+                  Upgrade
+                </Button>
               </Flex>
-              <Text>Subscription Date: 20TH, August, 2023</Text>
-              <Text>Next Billing Date: 20TH, September, 2023</Text>
+              <Text fontSize={"12px"} color={"#747474"}>
+                Subscription Date: 20TH, August, 2023
+              </Text>
+              <Text fontSize={"12px"} color={"#747474"}>
+                Next Billing Date: 20TH, September, 2023
+              </Text>
             </Box>{" "}
-            <Heading>Cancel Subscription</Heading>{" "}
-            <Button>Cancel Subscription</Button>
-            <Text>
-              By cancelling your subscription, your data and subscription will
-              be lost.
-            </Text>
+            <Flex justify={"space-between"} p={5}>
+              <Box>
+                <Heading
+                  fontSize={"20px"}
+                  fontStyle={"normal"}
+                  fontWeight={"500"}
+                >
+                  Cancel Subscription
+                </Heading>
+                <Text fontSize={"12px"} color={"#747474"} mt={2}>
+                  By cancelling your subscription, your data and subscription
+                  will be lost.
+                </Text>
+              </Box>{" "}
+              <Button variant={"link"} color="#FF0000">
+                Cancel Subscription
+              </Button>
+            </Flex>
             <br></br>
             <Heading>Billing History</Heading>
             <TableContainer>
@@ -139,7 +193,11 @@ export default function ManageSubscriptions() {
                 <TableCaption>
                   Imperial to metric conversion factors
                 </TableCaption>
-                <Thead>
+                <Thead
+                  bg="rgba(216, 216, 216, 0.10)"
+                  border={" 1px white solid"}
+                  borderRadius={"4xl"}
+                >
                   <Tr>
                     <Th>Date</Th>
                     <Th>Subscription</Th>
@@ -152,109 +210,68 @@ export default function ManageSubscriptions() {
                   <Tr>
                     <Td>11/12/2023</Td>
                     <Td>Monthly Pro Plan</Td>
-                    <Td bg={"green"} color="white">
-                      Active
+                    <Td>
+                      <Button
+                        bg={"rgba(26, 191, 63, 0.20)"}
+                        color={"#1ABF3F"}
+                        size="sm"
+                      >
+                        Active
+                      </Button>
                     </Td>
                     <Td isNumeric>N22,000</Td>
-                    <Td>Download</Td>
+                    <Td color={"#0066B2"}>Download</Td>
                   </Tr>
                   <Tr>
                     <Td>11/12/2023</Td>
                     <Td>Monthly Pro Plan</Td>
-                    <Td bg={"green"} color="white">
-                      Active
+                    <Td>
+                      <Button
+                        bg={"rgba(26, 191, 63, 0.20)"}
+                        color={"#1ABF3F"}
+                        size="sm"
+                      >
+                        Active
+                      </Button>
                     </Td>
                     <Td isNumeric>N22,000</Td>
-                    <Td>Download</Td>
+                    <Td color={"#0066B2"}>Download</Td>
                   </Tr>
                   <Tr>
                     <Td>11/12/2023</Td>
                     <Td>Monthly Pro Plan</Td>
-                    <Td bg={"green"} color="white">
-                      Active
+                    <Td>
+                      <Button
+                        bg={"rgba(255, 0, 0, 0.20)"}
+                        color={"#FF0000"}
+                        size="sm"
+                      >
+                        Inactive
+                      </Button>
                     </Td>
                     <Td isNumeric>N22,000</Td>
-                    <Td>Download</Td>
+                    <Td color={"#0066B2"}>Download</Td>
                   </Tr>
                 </Tbody>
                 <Tfoot>
                   <Tr>
                     <Td>11/12/2023</Td>
                     <Td>Monthly Pro Plan</Td>
-                    <Td bg={"green"} color="white">
-                      Active
+                    <Td>
+                      <Button
+                        bg={"rgba(26, 191, 63, 0.20)"}
+                        color={"#1ABF3F"}
+                        size="sm"
+                      >
+                        Active
+                      </Button>
                     </Td>
                     <Td isNumeric>N22,000</Td>
-                    <Td>Download</Td>
+                    <Td color={"#0066B2"}>Download</Td>
                   </Tr>
                 </Tfoot>
               </Table>
             </TableContainer>
-          </Stack>
-          <Stack w={"full"}>
-            {" "}
-            <br></br>
-            <SimpleGrid columns={{ base: 1, md: 1 }} spacing={10} my={10}>
-              <Card
-                direction={{ base: "column", sm: "row" }}
-                overflow="hidden"
-                variant="outline"
-                bg={"linear-gradient(210deg, #FFBE99 13.4%, #FD9094 86.6%)"}
-              >
-                <Stack>
-                  <CardBody color={"white"}>
-                    <Flex direction={"column"} gap={5}>
-                      <Image src={tinyPen} alt="meta" width={"30"} />
-                      <Heading fontSize={"md"}>Spy on competitors Ads</Heading>
-                      <Text>
-                        Spy on your competitors winning ads, write compelling
-                        copies + plan and organize tasks in your workspace
-                      </Text>
-                    </Flex>
-                  </CardBody>
-                </Stack>
-              </Card>
-
-              <Card
-                direction={{ base: "column", sm: "row" }}
-                overflow="hidden"
-                variant="outline"
-                bg={"linear-gradient(60deg, #B23DEB 13.4%, #DE8FFF 86.6%)"}
-              >
-                <Stack>
-                  <CardBody color={"white"}>
-                    <Flex direction={"column"} gap={5}>
-                      <Image src={tinyPen} alt="meta" width={"30"} />
-                      <Heading fontSize={"md"}>Spy on competitors Ads</Heading>
-                      <Text>
-                        Spy on your competitors winning ads, write compelling
-                        copies + plan and organize tasks in your workspace
-                      </Text>
-                    </Flex>
-                  </CardBody>
-                </Stack>
-              </Card>
-
-              <Card
-                direction={{ base: "column", sm: "row" }}
-                overflow="hidden"
-                variant="outline"
-                bg={"linear-gradient(60deg, #282828 13.4%, #693882 86.6%)"}
-              >
-                <Stack>
-                  <CardBody color={"white"}>
-                    <Flex direction={"column"} gap={5}>
-                      <Image src={tinyPen} alt="meta" width={"30"} />
-                      <Heading fontSize={"md"}>Spy on competitors Ads</Heading>
-                      <Text>
-                        Spy on your competitors winning ads, write compelling
-                        copies + plan and organize tasks in your workspace
-                      </Text>
-                    </Flex>
-                  </CardBody>
-                </Stack>
-              </Card>
-            </SimpleGrid>
           </Stack>
         </Box>
       </Box>
@@ -262,56 +279,65 @@ export default function ManageSubscriptions() {
   );
 }
 
-const SidebarContent = ({ ...props }) => (
-  <Box
-    as="nav"
-    pos="fixed"
-    top="0"
-    left="0"
-    zIndex="sticky"
-    h="full"
-    pb="10"
-    overflowX="hidden"
-    overflowY="auto"
-    bg={useColorModeValue("white", "gray.800")}
-    borderColor={useColorModeValue("inherit", "gray.700")}
-    borderRightWidth="1px"
-    w="60"
-    {...props}
-  >
-    <Flex px="10" py="5" align="center">
-      <Link href="/">
-        <Image src={knoweth} alt="logo" />
-      </Link>
-    </Flex>
-    <Flex
-      direction="column"
+const SidebarContent = ({ ...props }) => {
+  const router = useRouter();
+  return (
+    <Box
       as="nav"
-      fontSize="md"
-      color="gray.600"
-      aria-label="Main Navigation"
+      pos="fixed"
+      top="0"
+      left="0"
+      zIndex="sticky"
+      h="full"
+      pb="10"
+      overflowX="hidden"
+      overflowY="auto"
+      bg={useColorModeValue("white", "gray.800")}
+      borderColor={useColorModeValue("inherit", "gray.700")}
+      borderRightWidth="1px"
+      w="60"
+      {...props}
     >
-      <NavItem icon={AiOutlineHome}>Home</NavItem>
-      <NavItem icon={AiOutlineTeam}>Ads Spy</NavItem>
-      <NavItem icon={BsFolder2}>Board</NavItem>
-      <NavItem icon={BsCalendarCheck}>Ai Writing</NavItem>
-      <NavItem icon={AiOutlineHome}>Affilates</NavItem>
-      <NavItem icon={AiOutlineTeam}>Manage Subscription</NavItem>
+      <Flex px="10" py="5" align="center">
+        <Link href="/">
+          <Image src={knoweth} alt="logo" />
+        </Link>
+      </Flex>
+      <Flex
+        direction="column"
+        as="nav"
+        fontSize="md"
+        color="gray.600"
+        aria-label="Main Navigation"
+      >
+        <NavItem icon={AiOutlineHome}>Home</NavItem>
+        <NavItem icon={BsEye}>Ads Spy</NavItem>
+        <NavItem icon={CiViewBoard}>Board</NavItem>
+        <NavItem icon={PiNotePencilThin}>Ai Writing</NavItem>
+        <NavItem icon={AiOutlineTeam}>Affilates</NavItem>
+        <NavItem icon={BsShield}>Manage Subscription</NavItem>
 
-      <Menu>
-        <MenuButton as={Button} variant="ghost" rightIcon={<ChevronDownIcon />}>
-          <NavItem icon={BsFolder2}> Settings</NavItem>
-        </MenuButton>
-        <MenuList>
-          <MenuItem>Profile</MenuItem>
-          <MenuItem>Change Password</MenuItem>
-        </MenuList>
-      </Menu>
-      <NavItem icon={BsCalendarCheck}>Support</NavItem>
-      <NavItem icon={BsCalendarCheck}>Logout</NavItem>
-    </Flex>
-  </Box>
-);
+        <Menu>
+          <MenuButton
+            as={Button}
+            variant="ghost"
+            rightIcon={<ChevronDownIcon />}
+          >
+            <NavItem icon={FiSettings}> Settings</NavItem>
+          </MenuButton>
+          <MenuList>
+            <MenuItem onClick={() => router.push("/profileDash")}>
+              Profile
+            </MenuItem>
+            <MenuItem>Change Password</MenuItem>
+          </MenuList>
+        </Menu>
+        <NavItem icon={BiSupport}>Support</NavItem>
+        <NavItem icon={HiOutlineLogout}>Logout</NavItem>
+      </Flex>
+    </Box>
+  );
+};
 
 const NavItem = (props) => {
   const color = useColorModeValue("gray.600", "gray.300");
