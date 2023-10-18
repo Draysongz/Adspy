@@ -1,36 +1,63 @@
+import { useState } from "react";
 import {
   Avatar,
   Box,
   Flex,
   Icon,
   Text,
-  Link,
-  Image,
-  Button,
-  Heading,
   Stack,
-  VStack,
-  BoxProps,
+  Button,
   Drawer,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
   DrawerContent,
   IconButton,
   useDisclosure,
   DrawerOverlay,
   useColorModeValue,
+  Card,
+  CardHeader,
+  CardBody,
+  // Image,
+  Heading,
+  Editable,
+  EditableInput,
+  EditableTextarea,
+  EditablePreview,
+  FormControl,
+  Input,
+  FormLabel,
+  InputGroup,
+  InputRightElement,
+  CardFooter,
 } from "@chakra-ui/react";
-
+import {
+  ViewIcon,
+  ViewOffIcon,
+  ChevronDownIcon,
+  EditIcon,
+} from "@chakra-ui/icons";
 // Here we have used react-icons package for the icons
+import { FaBell } from "react-icons/fa";
 import { AiOutlineTeam, AiOutlineHome } from "react-icons/ai";
-import { BsFolder2, BsCalendarCheck } from "react-icons/bs";
+import {
+  BsFolder2,
+  BsCalendarCheck,
+  BsFillShareFill,
+  BsThreeDots,
+} from "react-icons/bs";
 import { FiMenu } from "react-icons/fi";
 import { RiFlashlightFill } from "react-icons/ri";
+import knoweth from "../../images/knoweth.png";
+import Link from "next/link";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import Board from "./Board";
+import AiRecord from "./AiRecord";
 
-export default function Index() {
+export default function AiSidebar() {
   const { isOpen, onClose, onOpen } = useDisclosure();
+  const [showPassword, setShowPassword] = useState(false);
+  const [showNewPassword, setShowNewPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   return (
     <Box
@@ -49,14 +76,13 @@ export default function Index() {
         <Flex
           as="header"
           align="center"
+          justify={{ base: "space-between", md: "flex-end" }}
           w="full"
           px="4"
-          d={{ base: "flex", md: "none" }}
           borderBottomWidth="1px"
           borderColor={useColorModeValue("inherit", "gray.700")}
           bg={useColorModeValue("white", "gray.800")}
-          justify={{ base: "space-between", md: "flex-end" }}
-          boxShadow="lg"
+          boxShadow="sm"
           h="14"
         >
           <IconButton
@@ -68,64 +94,40 @@ export default function Index() {
           />
 
           <Flex align="center">
-            <Icon as={RiFlashlightFill} h={8} w={8} />
+            <Icon color="gray.500" as={FaBell} cursor="pointer" />
+            <Avatar
+              ml="4"
+              size="sm"
+              name="Ahmad"
+              src="https://avatars2.githubusercontent.com/u/37842853?v=4"
+              cursor="pointer"
+            />
           </Flex>
         </Flex>
-
         <Box
           as="main"
           p={14}
-          minH="30rem"
+          minH="25rem"
           bg={useColorModeValue("auto", "gray.800")}
         >
+          <AiRecord />
           <Stack
-            direction={{ base: "column", sm: "row" }}
-            alignItems="center"
-            justifyContent="center"
-            h="100%"
-          >
-            <Stack spacing={8}>
-              <Box>
-                <Heading color="blue.400" fontSize="3xl">
-                  Point of sale
-                </Heading>
-                <Text fontSize="md" color="gray.500">
-                  Manage your inventory and sale efficiently.
-                </Text>
-              </Box>
-              <Stack
-                direction={{ base: "column", md: "row" }}
-                spacing={4}
-                justify="center"
-              >
-                <Button
-                  rounded="full"
-                  bg="blue.400"
-                  color="white"
-                  _hover={{
-                    bg: "blue.500",
-                  }}
-                >
-                  Stocks
-                </Button>
-                <Button rounded="full">Vendors</Button>
-              </Stack>
-            </Stack>
-
-            <Image
-              alt="Homepage Image"
-              objectFit="cover"
-              width="60vh"
-              src="http://pos-new-system.herokuapp.com/static/media/EmptyNotesList.2ec57340.svg"
-            />
-          </Stack>
+            spacing={4}
+            bg={useColorModeValue("white", "gray.700")}
+            rounded={"xl"}
+            boxShadow={"lg"}
+            p={10}
+            my={4}
+          ></Stack>
+          {/* <Board /> */}
         </Box>
       </Box>
     </Box>
   );
 }
 
-function SidebarContent(props) {
+const SidebarContent = ({ ...props }) => {
+  const router = useRouter();
   return (
     <Box
       as="nav"
@@ -134,6 +136,7 @@ function SidebarContent(props) {
       left="0"
       zIndex="sticky"
       h="full"
+      pb="10"
       overflowX="hidden"
       overflowY="auto"
       bg={useColorModeValue("white", "gray.800")}
@@ -142,66 +145,48 @@ function SidebarContent(props) {
       w="60"
       {...props}
     >
-      <VStack h="full" w="full" alignItems="flex-start" justify="space-between">
-        <Box w="full">
-          <Flex px="4" py="5" align="center">
-            <Icon as={RiFlashlightFill} h={8} w={8} />
-            <Text
-              fontSize="2xl"
-              ml="2"
-              color={useColorModeValue("brand.500", "white")}
-              fontWeight="semibold"
-            >
-              POS
-            </Text>
-          </Flex>
-          <Flex
-            direction="column"
-            as="nav"
-            fontSize="md"
-            color="gray.600"
-            aria-label="Main Navigation"
-          >
-            <NavItem icon={AiOutlineHome}>Dashboard</NavItem>
-            <NavItem icon={AiOutlineTeam}>Team</NavItem>
-            <NavItem icon={BsFolder2}>Projects</NavItem>
-            <NavItem icon={BsCalendarCheck}>Calendar</NavItem>
-          </Flex>
-        </Box>
+      <Flex px="10" py="5" align="center">
+        <Link href="/">
+          <Image src={knoweth} alt="logo" />
+        </Link>
+      </Flex>
+      <Flex
+        direction="column"
+        as="nav"
+        fontSize="md"
+        color="gray.600"
+        aria-label="Main Navigation"
+      >
+        <NavItem icon={AiOutlineHome}>Board</NavItem>
+        <NavItem icon={AiOutlineTeam}>Card</NavItem>
+        <NavItem icon={BsFolder2}>Cover</NavItem>
+        <NavItem icon={BsCalendarCheck}>Labels</NavItem>
+        <NavItem icon={AiOutlineHome}>Files</NavItem>
+        <NavItem icon={AiOutlineTeam}>Records</NavItem>
 
-        <Flex px="4" py="5" mt={10} justify="center" alignItems="center">
-          <Menu>
-            <MenuButton
-              as={Button}
-              size={"sm"}
-              rounded={"full"}
-              variant={"link"}
-              cursor={"pointer"}
-              _hover={{ textDecoration: "none" }}
-            >
-              <Avatar
-                size={"sm"}
-                name="Ahmad"
-                src="https://avatars2.githubusercontent.com/u/37842853?v=4"
-              />
-            </MenuButton>
-            <MenuList fontSize={17} zIndex={5555}>
-              <MenuItem as={Link} to="#">
-                My profile
-              </MenuItem>
-              <MenuItem as={Link} to="#">
-                Change password
-              </MenuItem>
-              <MenuItem>Logout</MenuItem>
-            </MenuList>
-          </Menu>
-        </Flex>
-      </VStack>
+        {/* <Menu>
+          <MenuButton
+            as={Button}
+            variant="ghost"
+            rightIcon={<ChevronDownIcon />}
+          >
+            <NavItem icon={BsFolder2}> Settings</NavItem>
+          </MenuButton>
+          <MenuList>
+            <MenuItem onClick={() => router.push("/profileDash")}>
+              Profile
+            </MenuItem>
+            <MenuItem>Change Password</MenuItem>
+          </MenuList>
+        </Menu>
+        <NavItem icon={BsCalendarCheck}>Support</NavItem>
+        <NavItem icon={BsCalendarCheck}>Logout</NavItem> */}
+      </Flex>
     </Box>
   );
-}
+};
 
-function NavItem(props) {
+const NavItem = (props) => {
   const color = useColorModeValue("gray.600", "gray.300");
 
   const { icon, children } = props;
@@ -233,4 +218,4 @@ function NavItem(props) {
       {children}
     </Flex>
   );
-}
+};
