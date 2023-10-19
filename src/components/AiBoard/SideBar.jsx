@@ -22,12 +22,15 @@ import {
   EditableInput,
   EditableTextarea,
   EditablePreview,
+  Form,
   FormControl,
   Input,
   FormLabel,
   InputGroup,
   InputRightElement,
   CardFooter,
+  UnorderedList,
+  ListItem,
 } from "@chakra-ui/react";
 import {
   ViewIcon,
@@ -36,13 +39,17 @@ import {
   EditIcon,
 } from "@chakra-ui/icons";
 // Here we have used react-icons package for the icons
+import { TbLayoutBoard } from "react-icons/tb";
 import { FaBell } from "react-icons/fa";
-import { AiOutlineTeam, AiOutlineHome } from "react-icons/ai";
+import { AiOutlineTeam, AiOutlineHome, AiOutlineTag } from "react-icons/ai";
+import { LuFiles } from "react-icons/lu";
+import { SiBookstack } from "react-icons/si";
 import {
   BsFolder2,
   BsCalendarCheck,
   BsFillShareFill,
   BsThreeDots,
+  BsWindowStack,
 } from "react-icons/bs";
 import { FiMenu } from "react-icons/fi";
 import { RiFlashlightFill } from "react-icons/ri";
@@ -50,10 +57,18 @@ import knoweth from "../../images/knoweth.png";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import Board from "./Board";
+import Board from "./AiBoard";
 import AiRecord from "./AiRecord";
+import { AiWriter } from "./aiWritter";
+import { Convo } from "./convo";
+import UpgradeCTA from "../UpgradeCTA";
 
-export default function AiSidebar() {
+export default function AiSidebar(
+  input,
+  handleInputChange,
+  handleSubmit,
+  messages
+) {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const [showPassword, setShowPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
@@ -72,6 +87,7 @@ export default function AiSidebar() {
           <SidebarContent w="full" borderRight="none" />
         </DrawerContent>
       </Drawer>
+
       <Box ml={{ base: 0, md: 60 }} transition=".3s ease">
         <Flex
           as="header"
@@ -103,22 +119,110 @@ export default function AiSidebar() {
               cursor="pointer"
             />
           </Flex>
-        </Flex>
+        </Flex>{" "}
+        <UpgradeCTA />
         <Box
           as="main"
           p={14}
           minH="25rem"
           bg={useColorModeValue("auto", "gray.800")}
         >
-          <AiRecord />
-          <Stack
+          {/* <AiRecord />
+          <Convo /> */}
+          <AiWriter />
+          {/* <Stack
             spacing={4}
             bg={useColorModeValue("white", "gray.700")}
             rounded={"xl"}
             boxShadow={"lg"}
             p={10}
             my={4}
-          ></Stack>
+            direction={"row"}
+          >
+            {" "}
+            <Flex
+              // as="side-bar"
+              bg="#0066B2"
+              h={"100vh"}
+              w="244px"
+              direction="column"
+              justifyContent={"space-between"}
+            >
+              <Button
+                border={"solid 0.5px rgba(255, 255, 255, 0.5)"}
+                bg="transparent"
+                borderRadius="5px"
+                p="10px"
+                m="10px"
+              >
+                + New Chat
+              </Button>
+              <UnorderedList p="10px" m="10px" h={"100%"}>
+                <ListItem listStyleType={"none"} p="15px 0" cursor={"pointer"}>
+                  BLUGH
+                </ListItem>
+              </UnorderedList>
+              <Flex
+                borderTop={"solid 0.5px rgba(255, 255, 255, 0.5)"}
+                p="10px"
+                m="10px"
+              >
+                <Text color="white">Made by ovpn</Text>
+              </Flex>
+            </Flex>
+            <Flex
+              h={"100vh"}
+              w="100%"
+              direction={"column"}
+              justifyContent="space-between"
+              alignItems="center"
+              textAlign="center"
+            >
+              <Heading>AI Writer</Heading>
+              <UnorderedList></UnorderedList>
+              <Stack>
+                <Flex
+                  w="100%"
+                  flexDirection="column"
+                  justifyContent={"center"}
+                  alignItems="center"
+                >
+                  {" "}
+                  <FormControl
+                    onSubmit={handleSubmit}
+                    pos={"relative"}
+                    w="100%"
+                    maxW="650px"
+                  >
+                    <Input
+                      value={input}
+                      onChange={handleInputChange}
+                      placeholder="What&rsquo;s on your mind?"
+                      w="100%"
+                      borderRadius="5px"
+                      p="12px 15px"
+                      bg="rgba(255,255,255,0.05)"
+                      boxShadow="rgba(0,0,0,0.05) 0 54px 55px, rgba(0,0,0,0.05) 0 -12px 30px, rgba(0,0,0,0.05) 0 4px 6px, rgba(0,0,0,0.05) 0 12px 3px, rgba(0,0,0,0.05) 0 -3px 5px"
+                    />{" "}
+                    <Button
+                      colorScheme="teal"
+                      type="submit"
+                      pos="absolute"
+                      right="0"
+                    >
+                      &gt;
+                    </Button>
+                  </FormControl>
+                </Flex>
+
+                <Text color="gray.400" fontSize="11px" p="10px">
+                  Free Research Preview. Ai Writer may produce inaccurate
+                  information about people, places, or facts. Ai Writer
+                  September 25 Version
+                </Text>
+              </Stack>
+            </Flex>
+          </Stack> */}
           {/* <Board /> */}
         </Box>
       </Box>
@@ -157,12 +261,12 @@ const SidebarContent = ({ ...props }) => {
         color="gray.600"
         aria-label="Main Navigation"
       >
-        <NavItem icon={AiOutlineHome}>Board</NavItem>
-        <NavItem icon={AiOutlineTeam}>Card</NavItem>
-        <NavItem icon={BsFolder2}>Cover</NavItem>
-        <NavItem icon={BsCalendarCheck}>Labels</NavItem>
-        <NavItem icon={AiOutlineHome}>Files</NavItem>
-        <NavItem icon={AiOutlineTeam}>Records</NavItem>
+        <NavItem icon={TbLayoutBoard}>Board</NavItem>
+        <NavItem icon={TbLayoutBoard}>Card</NavItem>
+        <NavItem icon={BsWindowStack}>Cover</NavItem>
+        <NavItem icon={AiOutlineTag}>Labels</NavItem>
+        <NavItem icon={LuFiles}>Files</NavItem>
+        <NavItem icon={SiBookstack}>Records</NavItem>
 
         {/* <Menu>
           <MenuButton

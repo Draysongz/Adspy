@@ -11,8 +11,8 @@ export default function SampleRender() {
   return (
     <>
       {" "}
-      {/* <AiSidebar /> */}
-      <ManageSubscriptions />
+      <AiSidebar />
+      {/* <ManageSubscriptions /> */}
       {/*      <ProfileHome />  <ProfileDash /> <UserDash /> <ProfileSidebar /> */}
     </>
   );

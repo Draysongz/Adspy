@@ -50,7 +50,7 @@ import knoweth from "../../images/knoweth.png";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import Board from "./Board";
+import Board from "./AiBoard";
 
 export default function AiFiles() {
   return (
