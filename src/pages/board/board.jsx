@@ -7,33 +7,12 @@ import {
   Box,
   Flex,
   Icon,
-  Text,
-  Stack,
-  Button,
   Drawer,
   DrawerContent,
   IconButton,
   useDisclosure,
   DrawerOverlay,
   useColorModeValue,
-  Card,
-  CardHeader,
-  CardBody,
-  // Image,
-  Heading,
-  Editable,
-  EditableInput,
-  EditableTextarea,
-  EditablePreview,
-  Form,
-  FormControl,
-  Input,
-  FormLabel,
-  InputGroup,
-  InputRightElement,
-  CardFooter,
-  UnorderedList,
-  ListItem,
 } from "@chakra-ui/react";
 import {
   ViewIcon,
@@ -47,22 +26,16 @@ import { FaBell } from "react-icons/fa";
 import { AiOutlineTeam, AiOutlineHome, AiOutlineTag } from "react-icons/ai";
 import { LuFiles } from "react-icons/lu";
 import { SiBookstack } from "react-icons/si";
-import {
-  BsFolder2,
-  BsCalendarCheck,
-  BsFillShareFill,
-  BsThreeDots,
-  BsWindowStack,
-} from "react-icons/bs";
+import { BsWindowStack } from "react-icons/bs";
 import { FiMenu } from "react-icons/fi";
 import { RiFlashlightFill } from "react-icons/ri";
 import knoweth from "../../images/knoweth.png";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { AiWriter } from "./aiWritter";
-import { Convo } from "./convo";
-import UpgradeCTA from "../UpgradeCTA";
+import Board from "../../components/AiBoard/AiBoard";
+
+import UpgradeCTA from "../../components/UpgradeCTA";
 
 // Define the AiSidebar component as a functional component that takes input, input change handler,
 // submission handler, and messages as its props.
@@ -134,101 +107,8 @@ export default function AiSidebar(
           {/* Components like AiWriter and others can be rendered here */}
           {/* <AiRecord />
           <Convo /> */}
-          <AiWriter {...(input, handleInputChange, handleSubmit, messages)} />
-          {/* <Stack
-            spacing={4}
-            bg={useColorModeValue("white", "gray.700")}
-            rounded={"xl"}
-            boxShadow={"lg"}
-            p={10}
-            my={4}
-            direction={"row"}
-          >
-            {" "}
-            <Flex
-              // as="side-bar"
-              bg="#0066B2"
-              h={"100vh"}
-              w="244px"
-              direction="column"
-              justifyContent={"space-between"}
-            >
-              <Button
-                border={"solid 0.5px rgba(255, 255, 255, 0.5)"}
-                bg="transparent"
-                borderRadius="5px"
-                p="10px"
-                m="10px"
-              >
-                + New Chat
-              </Button>
-              <UnorderedList p="10px" m="10px" h={"100%"}>
-                <ListItem listStyleType={"none"} p="15px 0" cursor={"pointer"}>
-                  BLUGH
-                </ListItem>
-              </UnorderedList>
-              <Flex
-                borderTop={"solid 0.5px rgba(255, 255, 255, 0.5)"}
-                p="10px"
-                m="10px"
-              >
-                <Text color="white">Made by ovpn</Text>
-              </Flex>
-            </Flex>
-            <Flex
-              h={"100vh"}
-              w="100%"
-              direction={"column"}
-              justifyContent="space-between"
-              alignItems="center"
-              textAlign="center"
-            >
-              <Heading>AI Writer</Heading>
-              <UnorderedList></UnorderedList>
-              <Stack>
-                <Flex
-                  w="100%"
-                  flexDirection="column"
-                  justifyContent={"center"}
-                  alignItems="center"
-                >
-                  {" "}
-                  <FormControl
-                    onSubmit={handleSubmit}
-                    pos={"relative"}
-                    w="100%"
-                    maxW="650px"
-                  >
-                    <Input
-                      value={input}
-                      onChange={handleInputChange}
-                      placeholder="What&rsquo;s on your mind?"
-                      w="100%"
-                      borderRadius="5px"
-                      p="12px 15px"
-                      bg="rgba(255,255,255,0.05)"
-                      boxShadow="rgba(0,0,0,0.05) 0 54px 55px, rgba(0,0,0,0.05) 0 -12px 30px, rgba(0,0,0,0.05) 0 4px 6px, rgba(0,0,0,0.05) 0 12px 3px, rgba(0,0,0,0.05) 0 -3px 5px"
-                    />{" "}
-                    <Button
-                      colorScheme="teal"
-                      type="submit"
-                      pos="absolute"
-                      right="0"
-                    >
-                      &gt;
-                    </Button>
-                  </FormControl>
-                </Flex>
-
-                <Text color="gray.400" fontSize="11px" p="10px">
-                  Free Research Preview. Ai Writer may produce inaccurate
-                  information about people, places, or facts. Ai Writer
-                  September 25 Version
-                </Text>
-              </Stack>
-            </Flex>
-          </Stack> */}
-          {/* <Board /> */}
+          <Board />{" "}
+          {/* <AiWriter {...(input, handleInputChange, handleSubmit, messages)} /> */}
         </Box>
       </Box>
     </Box>
@@ -267,32 +147,20 @@ const SidebarContent = ({ ...props }) => {
         color="gray.600"
         aria-label="Main Navigation"
       >
-        <NavItem icon={TbLayoutBoard}>Board</NavItem>
         <NavItem icon={TbLayoutBoard}>
-          <Link href="/userDash">Card</Link>
+          {" "}
+          <Link href="/board/board">Board</Link>
+        </NavItem>
+        <NavItem icon={TbLayoutBoard}>
+          <Link href="/board/card">Card</Link>
+        </NavItem>
+        <NavItem icon={SiBookstack}>
+          <Link href="/board/aiwritter">AiWritter</Link>
         </NavItem>
         <NavItem icon={BsWindowStack}>Cover</NavItem>
         <NavItem icon={AiOutlineTag}>Labels</NavItem>
         <NavItem icon={LuFiles}>Files</NavItem>
         <NavItem icon={SiBookstack}>Records</NavItem>
-
-        {/* <Menu>
-          <MenuButton
-            as={Button}
-            variant="ghost"
-            rightIcon={<ChevronDownIcon />}
-          >
-            <NavItem icon={BsFolder2}> Settings</NavItem>
-          </MenuButton>
-          <MenuList>
-            <MenuItem onClick={() => router.push("/profileDash")}>
-              Profile
-            </MenuItem>
-            <MenuItem>Change Password</MenuItem>
-          </MenuList>
-        </Menu>
-        <NavItem icon={BsCalendarCheck}>Support</NavItem>
-        <NavItem icon={BsCalendarCheck}>Logout</NavItem> */}
       </Flex>
     </Box>
   );

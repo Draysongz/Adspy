@@ -7,54 +7,37 @@ import {
   Text,
   Stack,
   Button,
-  Drawer,
-  DrawerContent,
   IconButton,
-  useDisclosure,
-  DrawerOverlay,
   useColorModeValue,
   Card,
   CardHeader,
   CardBody,
-  Image,
-  Heading,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  FormControl,
-  Input,
-  FormLabel,
-  InputGroup,
-  InputRightElement,
   CardFooter,
   Editable,
   EditableInput,
   EditableTextarea,
   EditablePreview,
+  Center,
 } from "@chakra-ui/react";
-import {
-  ViewIcon,
-  ViewOffIcon,
-  ChevronDownIcon,
-  EditIcon,
-} from "@chakra-ui/icons";
+
 // Here we have used react-icons package for the icons
 import { FaBell } from "react-icons/fa";
-import { AiOutlineTeam, AiOutlineHome } from "react-icons/ai";
+import { AiOutlineUnorderedList } from "react-icons/ai";
 import {
-  BsFolder2,
-  BsCalendarCheck,
   BsFillShareFill,
   BsThreeDots,
+  BsImage,
+  BsEmojiLaughing,
+  BsFillGrid3X3GapFill,
 } from "react-icons/bs";
-import { FiMenu } from "react-icons/fi";
-import { RiFlashlightFill } from "react-icons/ri";
-import knoweth from "../../images/knoweth.png";
+import { PiTextAa, PiTextB } from "react-icons/pi";
+import { FiMenu, FiLink2 } from "react-icons/fi";
 import Link from "next/link";
 // import Image from "next/image";
 import { useRouter } from "next/router";
-import Board from "./AiBoard";
+
+import duotone from "../../images/ph_image-duotone.svg";
+import Image from "next/image";
 
 export default function AiCard() {
   return (
@@ -79,15 +62,19 @@ export default function AiCard() {
         my={4}
       >
         {" "}
-        <Box border={"1px solid #0066B2"} p={5} bg={"rgba(0, 102, 178, 0.10)"}>
-          {" "}
-          <Image
-            objectFit="contain"
-            width={"20"}
-            height="20"
-            // src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-            alt="Chakra UI"
-          />
+        <Flex
+          flexDir={"column"}
+          border={"1px solid #0066B2"}
+          p={5}
+          bg={"rgba(0, 102, 178, 0.10)"}
+          maxW="989px"
+          h="668px"
+          align={"center"}
+          justify="center"
+        >
+          <Center bg="#D9D9D9" w={"739px"} h="85px">
+            <Image src={duotone} />
+          </Center>
           <Flex direction={"column"}>
             <Text>
               {" "}
@@ -95,53 +82,21 @@ export default function AiCard() {
                 variant="ghost"
                 colorScheme="gray"
                 aria-label="See menu"
-                icon={<BsThreeDots />}
+                icon={<BsFillGrid3X3GapFill />}
               />
               Description
             </Text>
-            <Card maxW="lg">
-              <CardHeader>
-                <Flex spacing="4" justify={"space-between"}>
-                  <IconButton
-                    variant="ghost"
-                    colorScheme="gray"
-                    aria-label="See menu"
-                    icon={<BsThreeDots />}
-                  />{" "}
-                  <IconButton
-                    variant="ghost"
-                    colorScheme="gray"
-                    aria-label="See menu"
-                    icon={<BsThreeDots />}
-                  />{" "}
-                  <IconButton
-                    variant="ghost"
-                    colorScheme="gray"
-                    aria-label="See menu"
-                    icon={<BsThreeDots />}
-                  />{" "}
-                  <IconButton
-                    variant="ghost"
-                    colorScheme="gray"
-                    aria-label="See menu"
-                    icon={<BsThreeDots />}
-                  />{" "}
-                  <IconButton
-                    variant="ghost"
-                    colorScheme="gray"
-                    aria-label="See menu"
-                    icon={<BsThreeDots />}
-                  />{" "}
-                  <IconButton
-                    variant="ghost"
-                    colorScheme="gray"
-                    aria-label="See menu"
-                    icon={<BsThreeDots />}
-                  />
+            <Card w="737px" h="433px" rounded={"none"}>
+              <CardHeader borderBottom={"solid 0.5px #000000"}>
+                <Flex justify={"space-between"}>
+                  <Icon as={PiTextAa} /> <Icon as={PiTextB} />
+                  <Icon as={AiOutlineUnorderedList} />
+                  <Icon as={FiLink2} /> <Icon as={BsImage} />
+                  <Icon as={BsEmojiLaughing} />
                 </Flex>
-              </CardHeader>{" "}
+              </CardHeader>
               <CardBody>
-                // Click the text to edit
+                // Click the text below to edit
                 <Editable defaultValue="Take some chakra">
                   <EditablePreview />
                   <EditableTextarea />
@@ -149,7 +104,7 @@ export default function AiCard() {
               </CardBody>
               <CardFooter>
                 <Stack direction="row" spacing={4} align="center">
-                  <Button colorScheme="teal" variant="solid">
+                  <Button colorScheme="teal" variant="solid" rounded={"md"}>
                     Add Tab
                   </Button>
                   <Button colorScheme="teal" variant="link">
@@ -159,7 +114,7 @@ export default function AiCard() {
               </CardFooter>
             </Card>
           </Flex>
-        </Box>
+        </Flex>
       </Stack>
     </>
   );

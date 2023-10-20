@@ -39,6 +39,7 @@ export function AiWriter() {
       {" "}
       <Flex
         // as="side-bar"
+        display={["none", "none", "flex"]}
         bg="#0066B2"
         h={"100vh"}
         w="244px"
@@ -111,7 +112,7 @@ export function AiWriter() {
               alignItems="center"
             >
               {" "}
-              <form className="" onSubmit={handleSubmit}>
+              {/* <form className="" onSubmit={handleSubmit}>
                 <p>User Message</p>
                 <Textarea
                   placeholder="What&rsquo;s on your mind?"
@@ -131,8 +132,8 @@ export function AiWriter() {
                 >
                   Send Message
                 </button>
-              </form>{" "}
-              {/* <FormControl
+              </form>{" "} */}
+              <FormControl
                 onSubmit={handleSubmit}
                 pos={"relative"}
                 w="100%"
@@ -142,6 +143,11 @@ export function AiWriter() {
                   value={input}
                   onChange={handleInputChange}
                   placeholder="What&rsquo;s on your mind?"
+                  w="100%"
+                  rounded={"full"}
+                  p="12px 15px"
+                  bg="rgba(255,255,255,0.05)"
+                  boxShadow="rgba(0,0,0,0.05) 0 54px 55px, rgba(0,0,0,0.05) 0 -12px 30px, rgba(0,0,0,0.05) 0 4px 6px, rgba(0,0,0,0.05) 0 12px 3px, rgba(0,0,0,0.05) 0 -3px 5px"
                 />{" "}
                 <Button
                   colorScheme="teal"
@@ -151,7 +157,7 @@ export function AiWriter() {
                 >
                   &gt;
                 </Button>
-              </FormControl> */}
+              </FormControl>
             </Flex>
 
             <Text color="gray.400" fontSize="11px" p="10px">

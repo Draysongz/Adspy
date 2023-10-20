@@ -7,33 +7,12 @@ import {
   Box,
   Flex,
   Icon,
-  Text,
-  Stack,
-  Button,
   Drawer,
   DrawerContent,
   IconButton,
   useDisclosure,
   DrawerOverlay,
   useColorModeValue,
-  Card,
-  CardHeader,
-  CardBody,
-  // Image,
-  Heading,
-  Editable,
-  EditableInput,
-  EditableTextarea,
-  EditablePreview,
-  Form,
-  FormControl,
-  Input,
-  FormLabel,
-  InputGroup,
-  InputRightElement,
-  CardFooter,
-  UnorderedList,
-  ListItem,
 } from "@chakra-ui/react";
 import {
   ViewIcon,
@@ -47,22 +26,16 @@ import { FaBell } from "react-icons/fa";
 import { AiOutlineTeam, AiOutlineHome, AiOutlineTag } from "react-icons/ai";
 import { LuFiles } from "react-icons/lu";
 import { SiBookstack } from "react-icons/si";
-import {
-  BsFolder2,
-  BsCalendarCheck,
-  BsFillShareFill,
-  BsThreeDots,
-  BsWindowStack,
-} from "react-icons/bs";
+import { BsWindowStack } from "react-icons/bs";
 import { FiMenu } from "react-icons/fi";
 import { RiFlashlightFill } from "react-icons/ri";
 import knoweth from "../../images/knoweth.png";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { AiWriter } from "./aiWritter";
-import { Convo } from "./convo";
-import UpgradeCTA from "../UpgradeCTA";
+import { AiWriter } from "../../components/AiBoard/aiWritter";
+import { Convo } from "../../components/AiBoard/convo";
+import UpgradeCTA from "../../components/UpgradeCTA";
 
 // Define the AiSidebar component as a functional component that takes input, input change handler,
 // submission handler, and messages as its props.
@@ -74,9 +47,6 @@ export default function AiSidebar(
 ) {
   // Initialize state variables using useState from React.
   const { isOpen, onClose, onOpen } = useDisclosure();
-  const [showPassword, setShowPassword] = useState(false);
-  const [showNewPassword, setShowNewPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   return (
     <Box
@@ -132,8 +102,7 @@ export default function AiSidebar(
           bg={useColorModeValue("auto", "gray.800")}
         >
           {/* Components like AiWriter and others can be rendered here */}
-          {/* <AiRecord />
-          <Convo /> */}
+          {/* <Convo /> */}
           <AiWriter {...(input, handleInputChange, handleSubmit, messages)} />
           {/* <Stack
             spacing={4}
@@ -267,32 +236,20 @@ const SidebarContent = ({ ...props }) => {
         color="gray.600"
         aria-label="Main Navigation"
       >
-        <NavItem icon={TbLayoutBoard}>Board</NavItem>
         <NavItem icon={TbLayoutBoard}>
-          <Link href="/userDash">Card</Link>
+          {" "}
+          <Link href="/board/board">Board</Link>
+        </NavItem>
+        <NavItem icon={TbLayoutBoard}>
+          <Link href="/board/card">Card</Link>
+        </NavItem>
+        <NavItem icon={SiBookstack} active>
+          <Link href="/board/aiwritter">AiWritter</Link>
         </NavItem>
         <NavItem icon={BsWindowStack}>Cover</NavItem>
         <NavItem icon={AiOutlineTag}>Labels</NavItem>
         <NavItem icon={LuFiles}>Files</NavItem>
         <NavItem icon={SiBookstack}>Records</NavItem>
-
-        {/* <Menu>
-          <MenuButton
-            as={Button}
-            variant="ghost"
-            rightIcon={<ChevronDownIcon />}
-          >
-            <NavItem icon={BsFolder2}> Settings</NavItem>
-          </MenuButton>
-          <MenuList>
-            <MenuItem onClick={() => router.push("/profileDash")}>
-              Profile
-            </MenuItem>
-            <MenuItem>Change Password</MenuItem>
-          </MenuList>
-        </Menu>
-        <NavItem icon={BsCalendarCheck}>Support</NavItem>
-        <NavItem icon={BsCalendarCheck}>Logout</NavItem> */}
       </Flex>
     </Box>
   );

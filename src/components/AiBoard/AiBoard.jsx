@@ -17,18 +17,12 @@ import {
   Card,
   CardHeader,
   CardBody,
-  CardFooter,
-  Avatar,
-  HStack,
-  InputGroup,
-  Input,
-  color,
   Center,
+  CardFooter,
 } from "@chakra-ui/react";
 import { BsFillShareFill, BsThreeDots } from "react-icons/bs";
-import { BiLike, BiChat, BiShare } from "react-icons/bi";
-import Nav from "../Nav";
 import { SideBarFunc } from "./SideDash";
+import duotone from "../../images/ph_image-duotone.svg";
 
 export default function Board() {
   return (
@@ -54,8 +48,8 @@ export default function Board() {
       >
         {" "}
         <Box border={"1px solid #0066B2"} p={5} bg={"rgba(0, 102, 178, 0.10)"}>
-          <Flex gap={10}>
-            <Card maxW="sm">
+          <Flex gap={10} direction={["column", "row"]}>
+            <Card maxW="md" rounded={"none"}>
               <CardHeader>
                 <Flex spacing="4">
                   <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">
@@ -71,13 +65,16 @@ export default function Board() {
                   />
                 </Flex>
               </CardHeader>{" "}
-              <Image
-                objectFit="cover"
-                src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                alt="Chakra UI"
-              />
+              <Center bg="#D9D9D9" maxW={"325px"} h="134px">
+                <Image src={duotone} />
+              </Center>
               <CardBody>
-                <Flex spacing="4" align="center" maxW={60}>
+                <Flex
+                  align="center"
+                  justify={"center"}
+                  border={"1px solid #006"}
+                  p={2}
+                >
                   <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">
                     <Box>
                       <Text>Card Title</Text>
@@ -96,8 +93,8 @@ export default function Board() {
               </CardBody>
             </Card>
 
-            <Card>
-              <CardBody>
+            <Card maxW="325px" maxH="199px" rounded={"none"}>
+              <CardHeader>
                 {" "}
                 <Flex spacing="4">
                   <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">
@@ -112,14 +109,24 @@ export default function Board() {
                     icon={<BsThreeDots />}
                   />
                 </Flex>
+              </CardHeader>
+              <CardBody>
+                {" "}
                 <Flex spacing="4" align="center">
-                  <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">
+                  <Flex
+                    flex="1"
+                    gap="4"
+                    alignItems="center"
+                    flexWrap="wrap"
+                    border={"1px solid #006"}
+                    p={2}
+                  >
                     <Box>
                       <Text>Enter Card Title</Text>
                     </Box>
                   </Flex>
                 </Flex>{" "}
-                <Stack direction="row" spacing={4} align="center">
+                <Stack direction="row" spacing={4} align="center" p={2}>
                   <Button colorScheme="teal" variant="solid">
                     Add Tab
                   </Button>
@@ -128,6 +135,7 @@ export default function Board() {
                   </Button>
                 </Stack>
               </CardBody>
+              <CardFooter> </CardFooter>
             </Card>
           </Flex>
         </Box>
