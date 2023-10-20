@@ -1,8 +1,8 @@
 import AiSidebar from "@/components/AiBoard/SideBar";
-import ChangePassword from "@/components/Profile/changepassword";
-import ManageSubscriptions from "@/components/Profile/ManageSubscriptions";
-import ProfileHome from "@/components/Profile/ProfileHome";
-import ProfileSidebar from "@/components/Profile/ProfileSidebar";
+import ChangePassword from "@/pages/profile/changepassword";
+import ManageSubscriptions from "@/pages/profile/manageSubscriptions";
+import ProfileHome from "@/pages/profile/profileHome";
+import ProfileSidebar from "@/pages/profile/ProfileSidebar";
 import { Flex } from "@chakra-ui/react";
 import UserDash from "./userDash";
 import ProfileDash from "./userDash";

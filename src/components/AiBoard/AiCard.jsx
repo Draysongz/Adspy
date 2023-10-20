@@ -33,7 +33,6 @@ import {
 import { PiTextAa, PiTextB } from "react-icons/pi";
 import { FiMenu, FiLink2 } from "react-icons/fi";
 import Link from "next/link";
-// import Image from "next/image";
 import { useRouter } from "next/router";
 
 import duotone from "../../images/ph_image-duotone.svg";

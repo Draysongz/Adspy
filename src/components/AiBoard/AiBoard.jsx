@@ -5,7 +5,6 @@ import {
   Icon,
   Text,
   Stack,
-  Image,
   IconButton,
   Button,
   useDisclosure,
@@ -20,6 +19,7 @@ import {
   Center,
   CardFooter,
 } from "@chakra-ui/react";
+import Image from "next/image";
 import { BsFillShareFill, BsThreeDots } from "react-icons/bs";
 import { SideBarFunc } from "./SideDash";
 import duotone from "../../images/ph_image-duotone.svg";

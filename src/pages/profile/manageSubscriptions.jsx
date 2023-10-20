@@ -310,12 +310,20 @@ const SidebarContent = ({ ...props }) => {
         color="gray.600"
         aria-label="Main Navigation"
       >
-        <NavItem icon={AiOutlineHome}>Home</NavItem>
-        <NavItem icon={BsEye}>Ads Spy</NavItem>
+        <NavItem icon={AiOutlineHome}>
+          <Link href="/profile/profileHome">Home</Link>
+        </NavItem>
+        <NavItem icon={BsEye}>
+          <Link href="/">Ads Spy</Link>
+        </NavItem>
         <NavItem icon={CiViewBoard}>Board</NavItem>
-        <NavItem icon={PiNotePencilThin}>Ai Writing</NavItem>
+        <NavItem icon={PiNotePencilThin}>
+          <Link href="/">Ai Writing</Link>
+        </NavItem>
         <NavItem icon={AiOutlineTeam}>Affilates</NavItem>
-        <NavItem icon={BsShield}>Manage Subscription</NavItem>
+        <NavItem icon={BsShield}>
+          <Link href="/profile/manageSubscriptions">Manage Subscription</Link>
+        </NavItem>
 
         <Menu>
           <MenuButton
@@ -326,10 +334,12 @@ const SidebarContent = ({ ...props }) => {
             <NavItem icon={FiSettings}> Settings</NavItem>
           </MenuButton>
           <MenuList>
-            <MenuItem onClick={() => router.push("/profileDash")}>
+            <MenuItem onClick={() => router.push("/profile/profileDash")}>
               Profile
             </MenuItem>
-            <MenuItem>Change Password</MenuItem>
+            <MenuItem onClick={() => router.push("/profile/profilePassword")}>
+              Change Password
+            </MenuItem>
           </MenuList>
         </Menu>
         <NavItem icon={BiSupport}>Support</NavItem>

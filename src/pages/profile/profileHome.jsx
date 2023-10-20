@@ -182,58 +182,75 @@ export default function ProfileHome() {
   );
 }
 
-const SidebarContent = ({ ...props }) => (
-  <Box
-    as="nav"
-    pos="fixed"
-    top="0"
-    left="0"
-    zIndex="sticky"
-    h="full"
-    pb="10"
-    overflowX="hidden"
-    overflowY="auto"
-    bg={useColorModeValue("white", "gray.800")}
-    borderColor={useColorModeValue("inherit", "gray.700")}
-    borderRightWidth="1px"
-    w="60"
-    {...props}
-  >
-    <Flex px="10" py="5" align="center">
-      <Link href="/">
-        <Image src={knoweth} alt="logo" />
-      </Link>
-    </Flex>
-    <Flex
-      direction="column"
+const SidebarContent = ({ ...props }) => {
+  const router = useRouter();
+  return (
+    <Box
       as="nav"
-      fontSize="md"
-      color="gray.600"
-      aria-label="Main Navigation"
+      pos="fixed"
+      top="0"
+      left="0"
+      zIndex="sticky"
+      h="full"
+      pb="10"
+      overflowX="hidden"
+      overflowY="auto"
+      bg={useColorModeValue("white", "gray.800")}
+      borderColor={useColorModeValue("inherit", "gray.700")}
+      borderRightWidth="1px"
+      w="60"
+      {...props}
     >
-      <NavItem icon={AiOutlineHome}>Home</NavItem>
-      <NavItem icon={BsEye}>Ads Spy</NavItem>
-      <NavItem icon={CiViewBoard}>Board</NavItem>
-      <NavItem icon={PiNotePencilThin}>Ai Writing</NavItem>
-      <NavItem icon={AiOutlineTeam}>Affilates</NavItem>
-      <NavItem icon={BsShield}>Manage Subscription</NavItem>
+      <Flex px="10" py="5" align="center">
+        <Link href="/">
+          <Image src={knoweth} alt="logo" />
+        </Link>
+      </Flex>
+      <Flex
+        direction="column"
+        as="nav"
+        fontSize="md"
+        color="gray.600"
+        aria-label="Main Navigation"
+      >
+        <NavItem icon={AiOutlineHome}>
+          <Link href="/profile/profileHome">Home</Link>
+        </NavItem>
+        <NavItem icon={BsEye}>
+          <Link href="/">Ads Spy</Link>
+        </NavItem>
+        <NavItem icon={CiViewBoard}>Board</NavItem>
+        <NavItem icon={PiNotePencilThin}>
+          <Link href="/">Ai Writing</Link>
+        </NavItem>
+        <NavItem icon={AiOutlineTeam}>Affilates</NavItem>
+        <NavItem icon={BsShield}>
+          <Link href="/profile/manageSubscriptions">Manage Subscription</Link>
+        </NavItem>
 
-      <Menu>
-        <MenuButton as={Button} variant="ghost" rightIcon={<ChevronDownIcon />}>
-          <NavItem icon={FiSettings}> Settings</NavItem>
-        </MenuButton>
-        <MenuList>
-          <MenuItem onClick={() => router.push("/profileDash")}>
-            Profile
-          </MenuItem>
-          <MenuItem>Change Password</MenuItem>
-        </MenuList>
-      </Menu>
-      <NavItem icon={BiSupport}>Support</NavItem>
-      <NavItem icon={HiOutlineLogout}>Logout</NavItem>
-    </Flex>
-  </Box>
-);
+        <Menu>
+          <MenuButton
+            as={Button}
+            variant="ghost"
+            rightIcon={<ChevronDownIcon />}
+          >
+            <NavItem icon={FiSettings}> Settings</NavItem>
+          </MenuButton>
+          <MenuList>
+            <MenuItem onClick={() => router.push("/profile/profileDash")}>
+              Profile
+            </MenuItem>
+            <MenuItem onClick={() => router.push("/profile/profilePassword")}>
+              Change Password
+            </MenuItem>
+          </MenuList>
+        </Menu>
+        <NavItem icon={BiSupport}>Support</NavItem>
+        <NavItem icon={HiOutlineLogout}>Logout</NavItem>
+      </Flex>
+    </Box>
+  );
+};
 
 const NavItem = (props) => {
   const color = useColorModeValue("gray.600", "gray.300");
