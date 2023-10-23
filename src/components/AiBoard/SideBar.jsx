@@ -269,7 +269,7 @@ const SidebarContent = ({ ...props }) => {
       >
         <NavItem icon={TbLayoutBoard}>Board</NavItem>
         <NavItem icon={TbLayoutBoard}>
-          <Link href="/userDash">Card</Link>
+          <Link href="/admin/userDash">Card</Link>
         </NavItem>
         <NavItem icon={BsWindowStack}>Cover</NavItem>
         <NavItem icon={AiOutlineTag}>Labels</NavItem>

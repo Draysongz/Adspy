@@ -4,8 +4,8 @@ import ManageSubscriptions from "@/pages/profile/manageSubscriptions";
 import ProfileHome from "@/pages/profile/profileHome";
 import ProfileSidebar from "@/pages/profile/ProfileSidebar";
 import { Flex } from "@chakra-ui/react";
-import UserDash from "./userDash";
-import ProfileDash from "./userDash";
+import UserDash from "./admin/userDash";
+import ProfileDash from "./admin/userDash";
 
 export default function SampleRender() {
   return (
