@@ -36,7 +36,7 @@ import { FiMenu, FiSettings } from "react-icons/fi";
 import { BiSupport } from "react-icons/bi";
 import { HiOutlineLogout } from "react-icons/hi";
 import { RiFlashlightFill } from "react-icons/ri";
-import knoweth from "../images/knoweth.png";
+import knoweth from "../../images/knoweth.png";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -289,11 +289,12 @@ const NavItem = (props) => {
       role="group"
       fontWeight="semibold"
       transition=".15s ease"
-      color={useColorModeValue("inherit", "gray.400")}
+      color={useColorModeValue("gray.900", "gray.400")}
       _hover={{
-        bg: useColorModeValue("gray.100", "gray.900"),
+        bg: useColorModeValue("#0066B2", "gray.900"),
         color: useColorModeValue("gray.900", "gray.200"),
       }}
+      rounded={"lg"}
     >
       {icon && (
         <Icon

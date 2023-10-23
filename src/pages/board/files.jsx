@@ -175,11 +175,12 @@ const NavItem = (props) => {
       role="group"
       fontWeight="semibold"
       transition=".15s ease"
-      color={useColorModeValue("inherit", "gray.400")}
+      color={useColorModeValue("gray.900", "gray.400")}
       _hover={{
-        bg: useColorModeValue("gray.100", "gray.900"),
+        bg: useColorModeValue("#0066B2", "gray.900"),
         color: useColorModeValue("gray.900", "gray.200"),
       }}
+      rounded={"lg"}
     >
       {icon && (
         <Icon

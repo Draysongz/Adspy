@@ -227,18 +227,33 @@ const SidebarContent = ({ ...props }) => (
       <NavItem icon={PiNotePencilThin}>Ai Writing</NavItem>
       <NavItem icon={AiOutlineTeam}>Affilates</NavItem>
       <NavItem icon={BsShield}>Manage Subscription</NavItem>
+      <NavItem icon={FiSettings}>
+        {" "}
+        <Menu>
+          <MenuButton
+            as={Button}
+            variant="ghost"
+            rightIcon={<ChevronDownIcon />}
+            bg={useColorModeValue("white", "gray.400")}
+            _hover={{
+              bg: useColorModeValue("#0066B2", "gray.900"),
+              color: useColorModeValue("gray.900", "gray.200"),
+            }}
+          >
+            {" "}
+            Settings
+          </MenuButton>
+          <MenuList>
+            <MenuItem onClick={() => router.push("/profileDash")}>
+              Profile
+            </MenuItem>
+            <MenuItem onClick={() => router.push("/profile/profilePassword")}>
+              Change Password
+            </MenuItem>
+          </MenuList>
+        </Menu>{" "}
+      </NavItem>
 
-      <Menu>
-        <MenuButton as={Button} variant="ghost" rightIcon={<ChevronDownIcon />}>
-          <NavItem icon={FiSettings}> Settings</NavItem>
-        </MenuButton>
-        <MenuList>
-          <MenuItem onClick={() => router.push("/profileDash")}>
-            Profile
-          </MenuItem>
-          <MenuItem>Change Password</MenuItem>
-        </MenuList>
-      </Menu>
       <NavItem icon={BiSupport}>Support</NavItem>
       <NavItem icon={HiOutlineLogout}>Logout</NavItem>
     </Flex>
@@ -258,11 +273,12 @@ const NavItem = (props) => {
       role="group"
       fontWeight="semibold"
       transition=".15s ease"
-      color={useColorModeValue("inherit", "gray.400")}
+      color={useColorModeValue("gray.900", "gray.400")}
       _hover={{
-        bg: useColorModeValue("gray.100", "gray.900"),
+        bg: useColorModeValue("#0066B2", "gray.900"),
         color: useColorModeValue("gray.900", "gray.200"),
       }}
+      rounded={"lg"}
     >
       {icon && (
         <Icon
