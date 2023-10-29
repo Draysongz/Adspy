@@ -17,7 +17,7 @@ const data = [
   ["Dec", 1600000],
 ];
 
-export const options = {
+const options = {
   chart: {
     title: "Achievement +60%",
   },
@@ -30,7 +30,7 @@ export const options = {
   },
 };
 
-export function BarChart() {
+export default function BarChart() {
   return (
     <Chart
       chartType="Bar"
