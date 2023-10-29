@@ -59,7 +59,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { Chart } from "react-google-charts";
-import { BarChart } from "./chart";
+import BarChart from "./chart";
 
 export default function DashBg() {
   const { isOpen, onClose, onOpen } = useDisclosure();
