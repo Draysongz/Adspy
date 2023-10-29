@@ -66,7 +66,7 @@ export default function Board() {
                 </Flex>
               </CardHeader>{" "}
               <Center bg="#D9D9D9" maxW={"325px"} h="134px">
-                <Image src={duotone} />
+                <Image src={duotone} alt="duotone" />
               </Center>
               <CardBody>
                 <Flex

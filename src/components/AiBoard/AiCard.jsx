@@ -72,7 +72,7 @@ export default function AiCard() {
           justify="center"
         >
           <Center bg="#D9D9D9" w={"739px"} h="85px">
-            <Image src={duotone} />
+            <Image src={duotone} alt="duotone" />
           </Center>
           <Flex direction={"column"}>
             <Text>
@@ -95,7 +95,7 @@ export default function AiCard() {
                 </Flex>
               </CardHeader>
               <CardBody>
-                // Click the text below to edit
+                <Text>Click the text below to edit</Text>
                 <Editable defaultValue="Take some chakra">
                   <EditablePreview />
                   <EditableTextarea />

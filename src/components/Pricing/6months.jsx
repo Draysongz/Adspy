@@ -10,11 +10,6 @@ import {
   Button,
   SimpleGrid,
   useColorModeValue,
-  Tabs,
-  TabList,
-  TabPanels,
-  Tab,
-  TabPanel,
   Center,
 } from "@chakra-ui/react";
 // Here we have used react-icons package for the icons
@@ -79,17 +74,19 @@ const Month6 = () => {
 };
 
 const PricingCard = ({ title, price, price2, features, cta, index }) => {
-  const cardBackgroundColor =
-    index === 1 ? "blue.500" : useColorModeValue("white", "gray.800");
+  const cardBg = useColorModeValue("white", "gray.800");
+  const buttonBg = useColorModeValue("#0066B2", "gray.800");
+  const txtClr = useColorModeValue("white", "gray.800");
+  const ftxtClr = useColorModeValue("gray.900", "white");
 
-  const buttonBackgroundColor =
-    index === 1 ? "white" : useColorModeValue("#0066B2", "gray.800");
+  const cardBackgroundColor = index === 1 ? "blue.500" : cardBg;
 
-  const textColor =
-    index === 1 ? "#0066B2" : useColorModeValue("white", "gray.800");
+  const buttonBackgroundColor = index === 1 ? "white" : buttonBg;
 
-  const featureTextColor =
-    index === 1 ? "white" : useColorModeValue("gray.900", "white");
+  const textColor = index === 1 ? "#0066B2" : txtClr;
+
+  const featureTextColor = index === 1 ? "white" : ftxtClr;
+
   return (
     <Box
       minW={{ base: "xs", sm: "xs", lg: "sm" }}

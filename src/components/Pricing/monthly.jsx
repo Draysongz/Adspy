@@ -84,18 +84,19 @@ const ThreeTiersPricing = () => {
 
 //Pricing card render
 
-const PricingCard = ({ title, price, icon, features, cta, index }) => {
-  const cardBackgroundColor =
-    index === 1 ? "blue.500" : useColorModeValue("white", "gray.800");
+const PricingCard = ({ title, price, features, cta, index }) => {
+  const cardBg = useColorModeValue("white", "gray.800");
+  const buttonBg = useColorModeValue("#0066B2", "gray.800");
+  const txtClr = useColorModeValue("white", "gray.800");
+  const ftxtClr = useColorModeValue("gray.900", "white");
 
-  const buttonBackgroundColor =
-    index === 1 ? "white" : useColorModeValue("#0066B2", "gray.800");
+  const cardBackgroundColor = index === 1 ? "blue.500" : cardBg;
 
-  const textColor =
-    index === 1 ? "#0066B2" : useColorModeValue("white", "gray.800");
+  const buttonBackgroundColor = index === 1 ? "white" : buttonBg;
 
-  const featureTextColor =
-    index === 1 ? "white" : useColorModeValue("gray.900", "white");
+  const textColor = index === 1 ? "#0066B2" : txtClr;
+
+  const featureTextColor = index === 1 ? "white" : ftxtClr;
 
   return (
     <Box

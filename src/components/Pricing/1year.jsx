@@ -65,9 +65,12 @@ const plansList = [
 const Year1 = () => {
   return (
     <Container maxW="7xl" py="8" px="0">
-      <chakra.h2 fontSize="5xl" fontWeight="bold" textAlign="center" mb={5}>
- 
-      </chakra.h2>
+      <chakra.h2
+        fontSize="5xl"
+        fontWeight="bold"
+        textAlign="center"
+        mb={5}
+      ></chakra.h2>
       <SimpleGrid columns={{ base: 1, md: 1, lg: 3 }} spacing={5} mt={4}>
         {plansList.map((plan, index) => (
           <PricingCard key={index} index={index} {...plan} />
@@ -78,17 +81,19 @@ const Year1 = () => {
 };
 
 const PricingCard = ({ title, price, price2, features, cta, index }) => {
-  const cardBackgroundColor =
-    index === 1 ? "blue.500" : useColorModeValue("white", "gray.800");
+  const cardBg = useColorModeValue("white", "gray.800");
+  const buttonBg = useColorModeValue("#0066B2", "gray.800");
+  const txtClr = useColorModeValue("white", "gray.800");
+  const ftxtClr = useColorModeValue("gray.900", "white");
 
-  const buttonBackgroundColor =
-    index === 1 ? "white" : useColorModeValue("#0066B2", "gray.800");
+  const cardBackgroundColor = index === 1 ? "blue.500" : cardBg;
 
-  const textColor =
-    index === 1 ? "#0066B2" : useColorModeValue("white", "gray.800");
+  const buttonBackgroundColor = index === 1 ? "white" : buttonBg;
 
-  const featureTextColor =
-    index === 1 ? "white" : useColorModeValue("gray.900", "white");
+  const textColor = index === 1 ? "#0066B2" : txtClr;
+
+  const featureTextColor = index === 1 ? "white" : ftxtClr;
+
   return (
     <Box
       minW={{ base: "xs", sm: "xs", lg: "sm" }}

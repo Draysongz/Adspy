@@ -19,65 +19,62 @@ import youtube from "../images/youtube.svg";
 import Image from "next/image";
 import tinyPen from "../images/teenyicons-solid.svg";
 
-const cardProp = [
-  { icon: tinyPen, title: "Step 1", paragraph: "Create a FREE account" },
-  {
-    icon: tinyPen,
-    title: "Step 2",
-    paragraph:
-      "Search for Ads based on specific keywords, advertiser, duration etc...",
-  },
-  {
-    icon: tinyPen,
-    title: "Step 3",
-    paragraph: "Write compelling copy and find the right target audience",
-  },
-  {
-    icon: tinyPen,
-    title: "Step 4",
-    paragraph: "Organize your task in the workspace",
-  },
-];
+// const cardProp = [
+//   { title: "Step 1", paragraph: "Create a FREE account" },
+//   {
+//     title: "Step 2",
+//     paragraph:
+//       "Search for Ads based on specific keywords, advertiser, duration etc...",
+//   },
+//   {
+//     title: "Step 3",
+//     paragraph: "Write compelling copy and find the right target audience",
+//   },
+//   {
+//     title: "Step 4",
+//     paragraph: "Organize your task in the workspace",
+//   },
+// ];
 
-const StepCard = ({ icon, title, paragraph }) => {
-  return (
-    <Box
-      minW={{ base: "xs", sm: "xs", lg: "sm" }}
-      rounded="md"
-      bg={useColorModeValue("white", "gray.800")}
-      boxShadow="md"
-      marginInline="auto"
-      my={3}
-      p={6}
-    >
-      <Box textAlign="center">
-        <Icon as={icon} h={10} w={10} color="teal.500" />
-        <chakra.h2 fontSize="2xl" fontWeight="bold">
-          {title}
-        </chakra.h2>
-        <Text fontSize="7xl" fontWeight="bold">
-          <Text as="sup" fontSize="3xl" fontWeight="normal" top="-1em">
-            $
-          </Text>
-          {price}
-        </Text>
-        <Text fontSize="md" color="gray.500">
-          per month
-        </Text>
-      </Box>
-      <VStack spacing={2} alignItems="flex-start" my={6}>
-        {paragraph.map((feature, index) => (
-          <HStack key={index} spacing={3}>
-            <Icon as={BiCheck} h={4} w={4} color="green.500" />
-            <Text fontSize="sm" color="gray.500">
-              {feature}
-            </Text>
-          </HStack>
-        ))}
-      </VStack>
-    </Box>
-  );
-};
+// const StepCard = ({ title, paragraph }) => {
+//   return (
+//     <Box
+//       minW={{ base: "xs", sm: "xs", lg: "sm" }}
+//       rounded="md"
+//       bg={useColorModeValue("white", "gray.800")}
+//       boxShadow="md"
+//       marginInline="auto"
+//       my={3}
+//       p={6}
+//     >
+//       <Box textAlign="center">
+//         <Icon as={icon} h={10} w={10} color="teal.500" />
+//         <chakra.h2 fontSize="2xl" fontWeight="bold">
+//           {title}
+//         </chakra.h2>
+//         <Text fontSize="7xl" fontWeight="bold">
+//           <Text as="sup" fontSize="3xl" fontWeight="normal" top="-1em">
+//             $
+//           </Text>
+//           {price}
+//         </Text>
+//         <Text fontSize="md" color="gray.500">
+//           per month
+//         </Text>
+//       </Box>
+//       <VStack spacing={2} alignItems="flex-start" my={6}>
+//         {paragraph.map((feature, index) => (
+//           <HStack key={index} spacing={3}>
+//             <Icon as={BiCheck} h={4} w={4} color="green.500" />
+//             <Text fontSize="sm" color="gray.500">
+//               {feature}
+//             </Text>
+//           </HStack>
+//         ))}
+//       </VStack>
+//     </Box>
+//   );
+// };
 
 export default function HowItWorks() {
   return (
