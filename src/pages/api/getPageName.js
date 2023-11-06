@@ -17,6 +17,7 @@ const getPageName = async (req, res) => {
     const html = response.data;
     const $ = cheerio.load(html);
     const htmlContent = $.html();
+    console.log(htmlContent)
 
     // Initialize variables for pageName, htmlValue, and originalImageUrl
     let pageName = null;

@@ -71,37 +71,63 @@ const Adspy = () => {
   const router=useRouter()
   console.log(adsData);
 
+  
+
   const handleSearchAds = () => {
-    // Define your API endpoint
-    const endpoint = "https://graph.facebook.com/v18.0/ads_archive"; // Replace vX.Y with the actual API version
+  //   // Define your API endpoint
+  //   const endpoint = "https://graph.facebook.com/v18.0/ads_archive"; // Replace vX.Y with the actual API version
 
-    // Add your API key to the query parameters
-    const apiKey =
-      "EAAEscRYLMj8BO4ZAPystMBQylzOw0UqZBIg4ftCZCiHCZAZBj0PZB0CirrVWHGzo9y1emIXApMcK5WPHZBgtBndFNk76e3WkTUHsMVxVrKdBZAXIJ39f9QeFoF2jXvSXaoN0H31Bjb6Pqd6VNOcTUi0T8cVLOjO7PKO7QyT1WdZAzLDTduvte3LMnPtZCGz6da8G8MrNuPLctv";
-    const queryParams = {
-      search_terms: searchValue,
-      active_status: "all",
-      media_type: adType,
-      publisher_platforms: platform ? [platform] : " Facebook",
-      ad_reached_countries: selectedCountry ? selectedCountry : undefined,
-      access_token: apiKey, // Include your API key here
-      // Add other query parameters based on your input fields
-    };
+  //   // Add your API key to the query parameters
+  //   const apiKey =
+  //     "EAAOeZB8ZBHfQgBO1lhNb63ghe9Xe6LNOqdemZBGC9rQTQ7plYap9i6RC7itVAqQrPRj8aGLNpEXz2FIc7BfbQd9OBzy7EZAkc8gTm0rYNsJZCO1Vp8GzVwHQaqZAsEaKiAtGWbyWpFHez5VS0wx67ner3iySuKbCRYEOCgsppCB2ZCCk9s8PKZCeuOMiF70RuQhfExqW3IVev3K1ROsJ58bHZCy9myrZCo4WwneFoqaAibeeRaZCS50pbJkcyFnupAk5wwcXip51eY0FPcZD";
+  //   const queryParams = {
+  //     active_status: "all",
+  //     media_type: adType,
+  //     publisher_platforms: platform ? [platform] : " Facebook",
+  //     ad_reached_countries: selectedCountry ? selectedCountry : undefined,
+  //     access_token: apiKey, // Include your API key here
+  //     // Add other query parameters based on your input fields
+  //   };
 
-    // You can adjust queryParams as needed for other fields like sort, date, gender, age, etc.
+  //     if (searchMode === "Keyword") {
+  //   queryParams.search_terms = searchValue;
+  // } else if (searchMode === "advertiser") {
+  //   queryParams.search_terms = searchValue;
+  //   queryParams.search_type= 'KEYWORD_UNORDERED'// Adjust this to the actual query parameter for advertisers
+  // }
 
-    // Make a GET request to the Facebook Ad Library API
-    axios
-      .get(endpoint, { params: queryParams })
-      .then((response) => {
-        // Handle the API response data here
-        console.log(response.data);
-        setAdsData(response.data);
-      })
-      .catch((error) => {
-        // Handle errors
-        console.error(error);
-      });
+  //   // You can adjust queryParams as needed for other fields like sort, date, gender, age, etc.
+
+  //   // Make a GET request to the Facebook Ad Library API
+  //   axios
+  //     .get(endpoint, { params: queryParams })
+  //     .then((response) => {
+  //       // Handle the API response data here
+  //       console.log(response.data);
+  //       setAdsData(response.data);
+  //     })
+  //     .catch((error) => {
+  //       // Handle errors
+  //       console.error(error);
+  //     });
+
+  handleSearch()
+  };
+
+  const handleSearch = async () => {
+    const apiUrl = `https://graph.facebook.com/search?type=adinterest&q=${searchValue}&limit=10000&locale=${`en_${selectedCountry}`}&access_token=EAAOeZB8ZBHfQgBOySW7a2i83eQhJ1sbYRWutbFwOIjjPAigf9ZB90tj6mB3jM0u5ZCfYBol7EFSUlFtpEymJ3ktZBe9kZCHZAZBuQFvyaE3dZCVATr0OAeGbgiMGK3hwzXeBEQkjBOLi4d9nYioAY7V0DDkZCOcZCtSjdE1MbxjaNepYHcZAV7ahxkCIFLwwZBgkzZC7YczcsG7ebHi7VzgmHMHWUQGa0V8I32ZCx5BFEy7kmJPfohTYFGjwECsGKZBfuqlNaqj9C2KMNNw5Kn8ZD`;
+  
+    try {
+      const response = await fetch(apiUrl);
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data.data);
+      } else {
+        console.error('Failed to fetch interests');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   useEffect(() => {
@@ -153,6 +179,7 @@ const Adspy = () => {
       fetchPageNames(adSnapshotUrls);
     }
   }, [adSnapshotUrls]);
+
 
   useEffect(() => {
     console.log(pageNames);
@@ -1281,15 +1308,20 @@ const Adspy = () => {
         </Stack>
         <Flex direction={"column"} justifyContent={"center"}></Flex>
       </Flex>
+
+      <div class="fb-post" data-href="https://www.facebook.com/ads/archive/render_ad/?id=6875123162546953&amp;access_token=EAAEscRYLMj8BO4ZAPystMBQylzOw0UqZBIg4ftCZCiHCZAZBj0PZB0CirrVWHGzo9y1emIXApMcK5WPHZBgtBndFNk76e3WkTUHsMVxVrKdBZAXIJ39f9QeFoF2jXvSXaoN0H31Bjb6Pqd6VNOcTUi0T8cVLOjO7PKO7QyT1WdZAzLDTduvte3LMnPtZCGz6da8G8MrNuPLctv" data-width="500" data-show-text="true"></div>
       <Flex gap={5} p={10} color="white" flexWrap={"wrap"} background={"blue"}>
         {adsData && adsData.data && adsData.data.length > 0 ? (
           adsData.data.map((ad, index) => (
             <Card h={'70vh'} w={"30vw"} key={index} onClick={()=>router.push(ad.ad_snapshot_url)}>
               <CardBody>
                 <Flex direction={'column'} gap={5}>
-                  <Flex alignItems={"center"} gap={2}>
+
+                  
+                  {/* <Flex alignItems={"center"} gap={2}>
                   {pageNames[index] && pageNames[index].originalImageUrl ? (
   <Image borderRadius={'full'} w={10} h={10} src={pageNames[index].originalImageUrl} alt="Original Image" />
+ 
 ) : (
   <Text> </Text>
 )}
@@ -1318,11 +1350,11 @@ const Adspy = () => {
   ) : (
     <Text>No Image Available</Text>
   )}
-</Flex>
+</Flex> */}
 
 <Flex justifyContent={'space-between'} alignItems={'center'}>
   <Box>
-  <Flex>
+  {/* <Flex>
                   {pageNames[index] && pageNames[index].pageTitle ? (
                       <Heading fontSize={'lg'}>{pageNames[index].pageTitle}</Heading>
 ) : (
@@ -1336,6 +1368,9 @@ const Adspy = () => {
 ) : (
   <Text>NO ad description</Text>
 )}
+                  </Flex> */}
+                  <Flex>
+                    {}
                   </Flex>
   </Box>
 
