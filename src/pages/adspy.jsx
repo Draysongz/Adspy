@@ -32,6 +32,7 @@ import {
   Input,
   Circle,
   Stack,
+  CardHeader,
 } from "@chakra-ui/react";
 import { BiLike, BiShare, BiChat } from "react-icons/bi";
 import { HamburgerIcon } from "@chakra-ui/icons";
@@ -43,6 +44,7 @@ import axios from "axios";
 import { Country } from "country-state-city";
 import AdsCard from "@/components/adsCard";
 import { useRouter } from "next/navigation";
+import UpgradeCTA from "@/components/UpgradeCTA";
 
 const Adspy = () => {
   const btnRef = useRef();
@@ -68,7 +70,7 @@ const Adspy = () => {
     </option>
   ));
 
-  const router=useRouter()
+  const router = useRouter();
   console.log(adsData);
 
   
@@ -149,7 +151,7 @@ const Adspy = () => {
         });
 
         const data = await response.json();
-       
+
         return data;
       } catch (error) {
         console.error("Error fetching page name:", error);
@@ -197,9 +199,9 @@ const Adspy = () => {
     setSelectedCountry("");
     setSortBy("");
     setStartDate("");
-    setAdsData([])
-    setPageNames([])
-    setAdSnapshotUrls([])
+    setAdsData([]);
+    setPageNames([]);
+    setAdSnapshotUrls([]);
   };
 
   return (
@@ -320,32 +322,7 @@ const Adspy = () => {
           </Card>
         </Flex>
       </>
-
-      <Flex
-        mt={{ xs: "10", md: "none" }}
-        bgColor={"#0066B2"}
-        p={6}
-        gap={10}
-        justifyContent={"space-between"}
-        alignItems={"center"}
-      >
-        <Box>
-          <Text fontSize={"lg"} color={"#F8F8F8"}>
-            Make more sales with Knoweth Pro!
-          </Text>
-        </Box>
-
-        <Box>
-          <Button
-            color={"#1B1D29"}
-            bgColor={"#fff"}
-            fontSize={"md"}
-            borderRadius={"md"}
-          >
-            Upgrade to Knoweth Pro
-          </Button>
-        </Box>
-      </Flex>
+      <UpgradeCTA />
 
       <Flex justifyContent={"center"} mt={10} direction={"column"} gap={10}>
         <Box alignSelf={"center"}>
@@ -1308,6 +1285,7 @@ const Adspy = () => {
         </Stack>
         <Flex direction={"column"} justifyContent={"center"}></Flex>
       </Flex>
+<<<<<<< HEAD
 
       <div class="fb-post" data-href="https://www.facebook.com/ads/archive/render_ad/?id=6875123162546953&amp;access_token=EAAEscRYLMj8BO4ZAPystMBQylzOw0UqZBIg4ftCZCiHCZAZBj0PZB0CirrVWHGzo9y1emIXApMcK5WPHZBgtBndFNk76e3WkTUHsMVxVrKdBZAXIJ39f9QeFoF2jXvSXaoN0H31Bjb6Pqd6VNOcTUi0T8cVLOjO7PKO7QyT1WdZAzLDTduvte3LMnPtZCGz6da8G8MrNuPLctv" data-width="500" data-show-text="true"></div>
       <Flex gap={5} p={10} color="white" flexWrap={"wrap"} background={"blue"}>
@@ -1328,12 +1306,123 @@ const Adspy = () => {
                     <Box>
                     {pageNames[index] &&  pageNames[index].pageName ? (
                     <Text>{JSON.parse(pageNames[index].pageName)}</Text>
+=======
+      <Flex
+        gap={5}
+        justifyContent="space-between"
+        p={5}
+        color="white"
+        flexWrap={"wrap"}
+        background={"#FBFBFB"}
+      >
+        {adsData && adsData.data && adsData.data.length > 0 ? (
+          adsData.data.map((ad, index) => (
+            <Card
+              maxW={["sm", "md"]}
+              key={index}
+              onClick={() => router.push(ad.ad_snapshot_url)}
+            >
+              <CardHeader>
+                <Flex alignItems={"center"} gap={2}>
+                  {pageNames[index] && pageNames[index].originalImageUrl ? (
+                    <Image
+                      borderRadius={"full"}
+                      w={10}
+                      h={10}
+                      src={pageNames[index].originalImageUrl}
+                      alt="Original Image"
+                    />
+                  ) : (
+                    <Text> </Text>
+                  )}
+                  <Box>
+                    {pageNames[index] && pageNames[index].pageName ? (
+                      <Text>{JSON.parse(pageNames[index].pageName)}</Text>
+>>>>>>> 7bd63ed81a0c28844cb90ca4b3949a4eeea6cdcf
                     ) : (
-                    <Text>No page name available</Text>
+                      <Text>No page name available</Text>
                     )}
-                      <Text>{ad.ad_delivery_start_time}</Text>
+                    <Text>{ad.ad_delivery_start_time}</Text>
+                  </Box>
+                </Flex>
+              </CardHeader>
+              <CardBody>
+                <Flex direction={"column"} gap={5}>
+                  <Flex>
+                    {pageNames[index] && pageNames[index].htmlValue ? (
+                      <Text
+                        dangerouslySetInnerHTML={{
+                          __html: pageNames[index].htmlValue,
+                        }}
+                      />
+                    ) : (
+                      <Text>NO ad description</Text>
+                    )}
+                  </Flex>
+
+                  <Flex
+                    // border={"2px solid red"}
+                    align="center"
+                    justify="center"
+                  >
+                    {pageNames[index] && pageNames[index].adImageUrl ? (
+                      <Image
+                        objectFit="cover"
+                        borderRadius={"md"}
+                        // w={"100%"}
+                        // h={"100%"}
+                        maxW="70%"
+                        maxH="70%"
+                        src={pageNames[index].adImageUrl}
+                        alt="Original Image"
+                      />
+                    ) : (
+                      <Text>No Image Available</Text>
+                    )}
+                  </Flex>
+
+                  <Flex
+                    justifyContent={"space-between"}
+                    alignItems={"center"}
+                    gap={5}
+                  >
+                    <Box>
+                      <Flex>
+                        {pageNames[index] && pageNames[index].pageTitle ? (
+                          <Heading fontSize={"md"}>
+                            {pageNames[index].pageTitle}
+                          </Heading>
+                        ) : (
+                          <Text>NO ad description</Text>
+                        )}
+                      </Flex>
+
+                      <Flex>
+                        {pageNames[index] &&
+                        pageNames[index].pageDescription ? (
+                          <Text
+                            fontSize={"sm"}
+                            dangerouslySetInnerHTML={{
+                              __html: pageNames[index].pageDescription,
+                            }}
+                          />
+                        ) : (
+                          <Text>NO ad description</Text>
+                        )}
+                      </Flex>
+                    </Box>
+
+                    <Box>
+                      {pageNames[index] && pageNames[index].cta ? (
+                        <Button borderRadius={"md"}>
+                          {pageNames[index].cta}
+                        </Button>
+                      ) : (
+                        <Text>No cta button</Text>
+                      )}
                     </Box>
                   </Flex>
+<<<<<<< HEAD
 
                   <Flex>
                   {pageNames[index] && pageNames[index].htmlValue ? (
@@ -1386,10 +1475,12 @@ const Adspy = () => {
 
 
 
+=======
+>>>>>>> 7bd63ed81a0c28844cb90ca4b3949a4eeea6cdcf
                 </Flex>
               </CardBody>
-              <CardFooter 
-              mt={'-2%'}
+              <CardFooter
+                mt={"-2%"}
                 justify="space-between"
                 flexWrap="wrap"
                 sx={{

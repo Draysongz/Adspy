@@ -20,18 +20,16 @@ import {
   Input,
 } from "@chakra-ui/react";
 import React from "react";
-import { HamburgerIcon } from "@chakra-ui/icons";
 import { useRef } from "react";
-import knoweth from "../images/knoweth copy.png";
 import IG from "../images/IG.svg";
 import x from "../images/x.svg";
 import fb from "../images/fb.svg";
 import linked from "../images/linked.svg";
 import Image from "next/image";
-import Link from "next/link";
-import { FcGoogle } from "react-icons/fc";
-import { BsFacebook } from "react-icons/bs";
+
 import Nav from "@/components/Nav";
+import SidebarWithHeader from "@/components/AiBoard/SideBar";
+import { SideBarFunc } from "@/components/AiBoard/SideDash";
 
 const Contact = () => {
   const btnRef = useRef();
@@ -43,104 +41,7 @@ const Contact = () => {
   };
   return (
     <Flex direction={"column"}>
-      {/* navigation bar */}
       <Nav />
-      {/* <>
-        <Flex
-          p={4}
-          alignItems={"center"}
-          justifyContent={"space-between"}
-          display={["none", "none", "flex"]}
-        >
-          <Box px={8}>
-            <Image src={knoweth} alt="logo" />
-          </Box>
-
-          <Flex gap={10}>
-            <Text>Products</Text>
-            <Text>How it works</Text>
-            <Text>Pricing</Text>
-            <Link href="/faq">
-              <Text>FAQS</Text>
-            </Link>
-            <Text>Contact Us</Text>
-          </Flex>
-
-          <Flex gap={3} px={8}>
-            <Link href="/register">
-              <Button borderRadius={"md"} w={"13vw"} color={"white"}>
-                Create Account
-              </Button>
-            </Link>
-          </Flex>
-        </Flex>
-
-        <Flex
-          display={["block", "block", "none", "none"]}
-          h={"12vh"}
-          overflow={"hidden"}
-          pos={"fixed"}
-          zIndex={"1000"}
-        >
-          <Card borderRadius={"none"} bgColor={"#fff"} w={"100vw"} px={6}>
-            <CardBody p={4}>
-              <Flex alignItems={"center"}>
-                <Box>
-                  <Flex justifyContent={"center"}>
-                    <Image src={knoweth} alt="logo" w={"70%"} />
-                  </Flex>
-                </Box>
-                <Spacer />
-
-                <Box>
-                  <HamburgerIcon
-                    ref={btnRef}
-                    onClick={onOpen}
-                    boxSize={6}
-                    color={"#000"}
-                  />
-                  <Drawer
-                    isOpen={isOpen}
-                    placement="top"
-                    onClose={onClose}
-                    finalFocusRef={btnRef}
-                  >
-                    <DrawerOverlay />
-                    <DrawerContent>
-                      <DrawerCloseButton />
-
-                      <DrawerBody>
-                        <Flex gap={10} direction={["column", "column"]}>
-                          <Text>Products</Text>
-                          <Text>How it works</Text>
-                          <Text>Pricing</Text>
-                          <Link href="/faq">
-                            <Text>FAQS</Text>
-                          </Link>
-                          <Text>Contact Us</Text>
-                        </Flex>
-
-                        <Flex gap={3} mt={6}>
-                          <Link href="/register">
-                            <Button
-                              borderRadius={"md"}
-                              w={["30vw"]}
-                              color={"white"}
-                            >
-                              Create Account
-                            </Button>
-                          </Link>
-                        </Flex>
-                      </DrawerBody>
-                    </DrawerContent>
-                  </Drawer>
-                </Box>
-              </Flex>
-            </CardBody>
-          </Card>
-        </Flex>
-      </> */}
-
       <Flex
         justifyContent={"space-between"}
         gap={5}

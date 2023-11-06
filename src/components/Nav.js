@@ -41,8 +41,8 @@ const Nav = () => {
           <Link href="/products">
             <Text>Products</Text>
           </Link>
-          <Text>How it works</Text>
-          <Text>Pricing</Text>
+          <Link href="/howitworks">How it works</Link>
+          <Link href="/pricing">Pricing</Link>
           <Link href="/faq">
             <Text>FAQS</Text>
           </Link>
@@ -69,8 +69,7 @@ const Nav = () => {
         display={["block", "block", "none", "none"]}
         h={"12vh"}
         overflow={"hidden"}
-        pos={"fixed"}
-        zIndex={"1000"}
+        // pos={"fixed"}
       >
         <Card borderRadius={"none"} bgColor={"#fff"} w={"100vw"} px={6}>
           <CardBody p={4}>
@@ -104,8 +103,8 @@ const Nav = () => {
                         <Link href="/products">
                           <Text>Products</Text>
                         </Link>
-                        <Text>How it works</Text>
-                        <Text>Pricing</Text>
+                        <Link href="/howitworks">How it works</Link>
+                        <Link href="/pricing">Pricing</Link>
                         <Link href="/faq">
                           <Text>FAQS</Text>
                         </Link>

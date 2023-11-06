@@ -26,9 +26,6 @@ import facebook from "../images/fb.svg";
 export default function AdsCard() {
   return (
     <>
-      <Text color={"gray.500"} mt={10}>
-        Results...
-      </Text>
       <Center p={5}>
         <SimpleGrid
           justifyContent="center"
@@ -160,12 +157,12 @@ export default function AdsCard() {
                   alt="meta"
                   width={"5"}
                 />
-                {/* <IconButton
+                <IconButton
                   variant="ghost"
                   colorScheme="gray"
                   aria-label="See menu"
                   icon={<BsThreeDotsVertical />}
-                /> */}
+                />
               </Flex>
             </CardHeader>
             <CardBody>
